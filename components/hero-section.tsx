@@ -24,14 +24,14 @@ export default function HeroSection() {
                 <section className="bg-muted/50 dark:bg-background overflow-hidden">
                     <div className="relative mx-auto max-w-5xl px-6 pt-28 lg:pt-24">
                         <div className="relative z-10 mx-auto max-w-2xl text-center">
-                            <h1 className="text-balance text-4xl font-semibold md:text-5xl lg:text-6xl">Modern Software testing reimagined</h1>
-                            <p className="text-muted-foreground mx-auto my-8 max-w-2xl text-xl">Officiis laudantium excepturi ducimus rerum dignissimos, and tempora nam vitae, excepturi ducimus iste provident dolores.</p>
+                            <h1 className="text-balance text-4xl font-semibold md:text-5xl lg:text-6xl">Le 1er contrôle parental conçu pour les familles musulmanes</h1>
+                            <p className="text-muted-foreground mx-auto my-8 max-w-2xl text-xl">Ce que vos enfants voient aujourd’hui façonne ce qu’ils deviendront demain.</p>
 
                             <Button
                                 asChild
                                 size="lg">
                                 <Link href="#">
-                                    <span className="btn-label">Start Building</span>
+                                    <span className="btn-label">Commencer gratuitement</span>
                                 </Link>
                             </Button>
                         </div>
@@ -42,15 +42,15 @@ export default function HeroSection() {
                             <div className="lg:h-176 rotate-x-20 mask-b-from-55% mask-b-to-100% mask-r-from-75% skew-x-12 pl-6 pt-6">
                                 <Image
                                     className="rounded-(--radius) border shadow-xl dark:hidden"
-                                    src="/card.png"
-                                    alt="Tailark hero section"
+                                    src="/images/dashboardmg.png"
+                                    alt="Dashboard Image"
                                     width={2880}
                                     height={2074}
                                 />
                                 <Image
                                     className="rounded-(--radius) hidden border shadow-xl dark:block"
-                                    src="/dark-card.webp"
-                                    alt="Tailark hero section"
+                                    src="/images/dashboardmg.png"
+                                    alt="Dashboard Image"
                                     width={2880}
                                     height={2074}
                                 />
@@ -64,7 +64,7 @@ export default function HeroSection() {
                         <div className="mx-auto mt-20 flex max-w-4xl flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16 sm:gap-y-12">
                             <img
                                 className="h-5 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/nvidia.svg"
+                                src="/images/chrome.svg"
                                 alt="Nvidia Logo"
                                 height="20"
                                 width="auto"
