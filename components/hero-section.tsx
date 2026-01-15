@@ -13,15 +13,23 @@ export default function HeroSection() {
         <>
 
             <main>
+                {/* Background decorative elements with Muslim Guard blue (#003463) */}
                 <div
                     aria-hidden
-                    className="z-2 absolute inset-0 isolate hidden opacity-50 contain-strict lg:block pointer-events-none">
-                    <div className="w-140 h-320 -translate-y-87.5 absolute left-0 top-0 -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,hsla(0,0%,85%,.08)_0,hsla(0,0%,55%,.02)_50%,hsla(0,0%,45%,0)_80%)]" />
-                    <div className="h-320 absolute left-0 top-0 w-60 -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.06)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)] [translate:5%_-50%]" />
-                    <div className="h-320 -translate-y-87.5 absolute left-0 top-0 w-60 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]" />
+                    className="absolute inset-0 isolate overflow-hidden pointer-events-none">
+                    {/* Large gradient orb - top left */}
+                    <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(0,52,99,0.15)_0%,rgba(0,52,99,0.05)_40%,transparent_70%)] blur-3xl" />
+                    {/* Medium gradient orb - top right */}
+                    <div className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(0,52,99,0.12)_0%,rgba(0,52,99,0.03)_50%,transparent_70%)] blur-2xl" />
+                    {/* Small accent orb - center */}
+                    <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[radial-gradient(ellipse,rgba(0,52,99,0.08)_0%,transparent_60%)] blur-3xl" />
+                    {/* Bottom gradient fade */}
+                    <div className="absolute bottom-0 left-0 right-0 h-[300px] bg-gradient-to-t from-[rgba(0,52,99,0.05)] to-transparent" />
+                    {/* Subtle grid pattern overlay */}
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(0,52,99,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,52,99,0.02)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black_40%,transparent_100%)]" />
                 </div>
 
-                <section className="bg-muted/50 dark:bg-background overflow-hidden">
+                <section className="relative dark:bg-background overflow-hidden">
                     <div className="relative mx-auto max-w-5xl px-6 pt-28 lg:pt-24">
                         <div className="relative z-10 mx-auto max-w-2xl text-center">
                             <h1 className="text-balance text-4xl font-semibold md:text-5xl lg:text-6xl">Le 1er contrôle parental conçu pour les familles musulmanes</h1>
@@ -58,7 +66,7 @@ export default function HeroSection() {
                         </div>
                     </div>
                 </section>
-                <section className="dark:bg-background bg-muted/50 relative z-10 py-16">
+                <section className="dark:bg-background relative z-10 py-16">
                     <div className="m-auto max-w-5xl px-6">
                         <h2 className="text-center text-lg font-medium">Your favorite companies are our partners.</h2>
                         <div className="mx-auto mt-20 flex max-w-4xl flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16 sm:gap-y-12">
