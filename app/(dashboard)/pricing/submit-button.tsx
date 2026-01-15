@@ -11,17 +11,16 @@ export function SubmitButton() {
     <Button
       type="submit"
       disabled={pending}
-      variant="outline"
-      className="w-full rounded-full"
+      className="w-full rounded-full bg-[#003463] hover:bg-[#003463]/90 text-white"
     >
       {pending ? (
         <>
           <Loader2 className="animate-spin mr-2 h-4 w-4" />
-          Loading...
+          Chargement...
         </>
       ) : (
         <>
-          Get Started
+          Protéger ma famille maintenant
           <ArrowRight className="ml-2 h-4 w-4" />
         </>
       )}

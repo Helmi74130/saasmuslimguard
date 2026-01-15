@@ -119,12 +119,12 @@ function PricingCard({
   return (
     <div
       className={`pt-6 rounded-lg p-6 ${highlighted
-          ? 'border-2 border-green-500 bg-green-50 shadow-lg'
+          ? 'border-2 border-[#003463] bg-[#003463]/5 shadow-lg'
           : 'border border-gray-200'
         }`}
     >
       {highlighted && (
-        <div className="bg-green-500 text-white text-sm font-bold py-1 px-3 rounded-full inline-block mb-4">
+        <div className="bg-[#003463] text-white text-sm font-bold py-1 px-3 rounded-full inline-block mb-4">
           Meilleure Offre
         </div>
       )}
@@ -138,22 +138,15 @@ function PricingCard({
       </p>
 
       {!isFree && (
-        <>
-          <p className="text-sm text-gray-600 mb-2">
-            par {interval === 'month' ? 'mois' : 'an'}
-          </p>
-          {trialDays > 0 && (
-            <p className="text-sm text-green-600 font-semibold mb-4">
-              Essai gratuit {trialDays} jours
-            </p>
-          )}
-        </>
+        <p className="text-sm text-gray-600 mb-4">
+          par {interval === 'month' ? 'mois' : 'an'}
+        </p>
       )}
 
       <ul className="space-y-3 mb-8">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start">
-            <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+            <Check className="h-5 w-5 text-[#003463] mr-3 mt-0.5 flex-shrink-0" />
             <span className="text-gray-700 text-sm">{feature}</span>
           </li>
         ))}
@@ -161,10 +154,9 @@ function PricingCard({
 
       {isFree ? (
         <button
-          disabled
-          className="w-full bg-gray-200 text-gray-600 py-2 px-4 rounded-lg font-semibold cursor-not-allowed"
+          className="w-full bg-[#003463]/10 text-[#003463] py-2 px-4 rounded-full font-semibold hover:bg-[#003463]/20 transition-colors"
         >
-          Actuellement utilisé
+          Essayer maintenant
         </button>
       ) : (
         <form action={checkoutAction}>

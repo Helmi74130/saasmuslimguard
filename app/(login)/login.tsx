@@ -1,12 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useActionState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { CircleIcon, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { signIn, signUp } from './actions';
 import { ActionState } from '@/lib/auth/middleware';
 
@@ -24,13 +25,24 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
     <div className="min-h-[100dvh] flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <CircleIcon className="h-12 w-12 text-orange-500" />
+          <Image
+            src="/images/logo.png"
+            alt="Muslim Guard"
+            width={64}
+            height={64}
+            className="h-16 w-16"
+          />
         </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-[#003463]">
           {mode === 'signin'
-            ? 'Sign in to your account'
-            : 'Create your account'}
+            ? 'Connectez-vous à votre compte'
+            : 'Créez votre compte'}
         </h2>
+        <p className="mt-2 text-center text-sm text-gray-600">
+          {mode === 'signin'
+            ? 'Accédez à votre espace Muslim Guard'
+            : 'Rejoignez Muslim Guard et protégez votre famille'}
+        </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -54,8 +66,8 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
                 defaultValue={state.email}
                 required
                 maxLength={50}
-                className="appearance-none rounded-full relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm"
-                placeholder="Enter your email"
+                className="appearance-none rounded-full relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#003463] focus:border-[#003463] focus:z-10 sm:text-sm"
+                placeholder="Entrez votre email"
               />
             </div>
           </div>
@@ -65,7 +77,7 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
               htmlFor="password"
               className="block text-sm font-medium text-gray-700"
             >
-              Password
+              Mot de passe
             </Label>
             <div className="mt-1">
               <Input
@@ -79,8 +91,8 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
                 required
                 minLength={8}
                 maxLength={100}
-                className="appearance-none rounded-full relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm"
-                placeholder="Enter your password"
+                className="appearance-none rounded-full relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#003463] focus:border-[#003463] focus:z-10 sm:text-sm"
+                placeholder="Entrez votre mot de passe"
               />
             </div>
           </div>
@@ -92,18 +104,18 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
           <div>
             <Button
               type="submit"
-              className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+              className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-[#003463] hover:bg-[#003463]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#003463]"
               disabled={pending}
             >
               {pending ? (
                 <>
                   <Loader2 className="animate-spin mr-2 h-4 w-4" />
-                  Loading...
+                  Chargement...
                 </>
               ) : mode === 'signin' ? (
-                'Sign in'
+                'Se connecter'
               ) : (
-                'Sign up'
+                'Créer mon compte'
               )}
             </Button>
           </div>
@@ -117,8 +129,8 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
             <div className="relative flex justify-center text-sm">
               <span className="px-2 bg-gray-50 text-gray-500">
                 {mode === 'signin'
-                  ? 'New to our platform?'
-                  : 'Already have an account?'}
+                  ? 'Nouveau sur Muslim Guard ?'
+                  : 'Vous avez déjà un compte ?'}
               </span>
             </div>
           </div>
@@ -128,11 +140,11 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
               href={`${mode === 'signin' ? '/sign-up' : '/sign-in'}${
                 redirect ? `?redirect=${redirect}` : ''
               }${priceId ? `&priceId=${priceId}` : ''}`}
-              className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-full shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+              className="w-full flex justify-center py-2 px-4 border border-[#003463] rounded-full shadow-sm text-sm font-medium text-[#003463] bg-white hover:bg-[#003463]/5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#003463]"
             >
               {mode === 'signin'
-                ? 'Create an account'
-                : 'Sign in to existing account'}
+                ? 'Créer un compte'
+                : 'Se connecter'}
             </Link>
           </div>
         </div>
