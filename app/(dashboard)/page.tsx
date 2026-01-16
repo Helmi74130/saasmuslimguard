@@ -9,6 +9,14 @@ import CallToAction from '@/components/call-to-action';
 import FAQsThree from '@/components/faqs-3';
 import FooterSection from '@/components/footer';
 import ContentSectionOne from '@/components/content-1';
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'MuslimGuard – Le contrôle parental islamique intelligent',
+  description:
+    'MuslimGuard protège vos enfants en ligne, bloque les contenus inappropriés et met Internet en pause pendant les heures de prière selon votre ville.',
+}
+
 
 export default function HomePage() {
   return (

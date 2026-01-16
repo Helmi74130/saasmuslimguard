@@ -1,7 +1,7 @@
 'use server';
 
 import { z } from 'zod';
-import { and, eq, sql } from 'drizzle-orm';
+import { and, eq, sql, gt, isNull } from 'drizzle-orm';
 import { db } from '@/lib/db/drizzle';
 import {
   User,
@@ -25,6 +25,8 @@ import {
   validatedAction,
   validatedActionWithUser
 } from '@/lib/auth/middleware';
+import { sendPasswordResetEmail } from '@/lib/email';
+import crypto from 'crypto';
 
 async function logActivity(
   teamId: number | null | undefined,
@@ -455,5 +457,143 @@ export const inviteTeamMember = validatedActionWithUser(
     // await sendInvitationEmail(email, userWithTeam.team.name, role)
 
     return { success: 'Invitation sent successfully' };
+  }
+);
+
+// Password Reset Actions
+
+const requestPasswordResetSchema = z.object({
+  email: z.string().email()
+});
+
+export const requestPasswordReset = validatedAction(
+  requestPasswordResetSchema,
+  async (data) => {
+    const { email } = data;
+
+    // Always return success to prevent email enumeration
+    const successMessage =
+      'Si un compte existe avec cet email, vous recevrez un lien de réinitialisation.';
+
+    // Find user by email (excluding deleted users)
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(and(eq(users.email, email), isNull(users.deletedAt)))
+      .limit(1);
+
+    if (!user) {
+      // Return success even if user doesn't exist (security)
+      return { success: successMessage };
+    }
+
+    // Generate a secure random token
+    const token = crypto.randomBytes(32).toString('hex');
+
+    // Hash the token before storing (security best practice)
+    const hashedToken = crypto.createHash('sha256').update(token).digest('hex');
+
+    // Set expiration to 1 hour from now
+    const expiresAt = new Date(Date.now() + 60 * 60 * 1000);
+
+    // Save the hashed token and expiration to database
+    await db
+      .update(users)
+      .set({
+        passwordResetToken: hashedToken,
+        passwordResetTokenExpiresAt: expiresAt
+      })
+      .where(eq(users.id, user.id));
+
+    // Get user's team for activity logging
+    const userWithTeam = await getUserWithTeam(user.id);
+
+    // Log the activity
+    await logActivity(
+      userWithTeam?.teamId,
+      user.id,
+      ActivityType.REQUEST_PASSWORD_RESET
+    );
+
+    // Send the email with the unhashed token
+    try {
+      await sendPasswordResetEmail(email, token);
+    } catch (error) {
+      console.error('Failed to send password reset email:', error);
+      // Still return success to prevent enumeration
+    }
+
+    return { success: successMessage };
+  }
+);
+
+const resetPasswordSchema = z.object({
+  token: z.string().min(1),
+  password: z.string().min(8).max(100),
+  confirmPassword: z.string().min(8).max(100)
+});
+
+export const resetPassword = validatedAction(
+  resetPasswordSchema,
+  async (data) => {
+    const { token, password, confirmPassword } = data;
+
+    if (password !== confirmPassword) {
+      return {
+        error: 'Les mots de passe ne correspondent pas.',
+        token
+      };
+    }
+
+    // Hash the provided token to compare with stored hash
+    const hashedToken = crypto.createHash('sha256').update(token).digest('hex');
+
+    // Find user with valid, non-expired token
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(
+        and(
+          eq(users.passwordResetToken, hashedToken),
+          gt(users.passwordResetTokenExpiresAt, new Date()),
+          isNull(users.deletedAt)
+        )
+      )
+      .limit(1);
+
+    if (!user) {
+      return {
+        error: 'Le lien de réinitialisation est invalide ou a expiré.',
+        token
+      };
+    }
+
+    // Hash the new password
+    const newPasswordHash = await hashPassword(password);
+
+    // Update password and clear the reset token
+    await db
+      .update(users)
+      .set({
+        passwordHash: newPasswordHash,
+        passwordResetToken: null,
+        passwordResetTokenExpiresAt: null
+      })
+      .where(eq(users.id, user.id));
+
+    // Get user's team for activity logging
+    const userWithTeam = await getUserWithTeam(user.id);
+
+    // Log the activity
+    await logActivity(
+      userWithTeam?.teamId,
+      user.id,
+      ActivityType.RESET_PASSWORD
+    );
+
+    return {
+      success:
+        'Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter.'
+    };
   }
 );

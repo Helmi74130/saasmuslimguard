@@ -9,6 +9,7 @@ import {
   UserMinus,
   Mail,
   CheckCircle,
+  KeyRound,
   type LucideIcon,
 } from 'lucide-react';
 import { ActivityType } from '@/lib/db/schema';
@@ -25,6 +26,8 @@ const iconMap: Record<ActivityType, LucideIcon> = {
   [ActivityType.REMOVE_TEAM_MEMBER]: UserMinus,
   [ActivityType.INVITE_TEAM_MEMBER]: Mail,
   [ActivityType.ACCEPT_INVITATION]: CheckCircle,
+  [ActivityType.REQUEST_PASSWORD_RESET]: KeyRound,
+  [ActivityType.RESET_PASSWORD]: KeyRound,
 };
 
 function getRelativeTime(date: Date) {
@@ -44,27 +47,31 @@ function getRelativeTime(date: Date) {
 function formatAction(action: ActivityType): string {
   switch (action) {
     case ActivityType.SIGN_UP:
-      return 'You signed up';
+      return 'Vous vous êtes inscrit';
     case ActivityType.SIGN_IN:
-      return 'You signed in';
+      return 'Vous vous êtes connecté';
     case ActivityType.SIGN_OUT:
-      return 'You signed out';
+      return 'Vous vous êtes déconnecté';
     case ActivityType.UPDATE_PASSWORD:
-      return 'You changed your password';
+      return 'Vous avez changé votre mot de passe';
     case ActivityType.DELETE_ACCOUNT:
-      return 'You deleted your account';
+      return 'Vous avez supprimé votre compte';
     case ActivityType.UPDATE_ACCOUNT:
-      return 'You updated your account';
+      return 'Vous avez mis à jour votre compte';
     case ActivityType.CREATE_TEAM:
-      return 'You created a new team';
+      return 'Vous avez créé une nouvelle équipe';
     case ActivityType.REMOVE_TEAM_MEMBER:
-      return 'You removed a team member';
+      return 'Vous avez retiré un membre de l\'équipe';
     case ActivityType.INVITE_TEAM_MEMBER:
-      return 'You invited a team member';
+      return 'Vous avez invité un membre';
     case ActivityType.ACCEPT_INVITATION:
-      return 'You accepted an invitation';
+      return 'Vous avez accepté une invitation';
+    case ActivityType.REQUEST_PASSWORD_RESET:
+      return 'Vous avez demandé une réinitialisation de mot de passe';
+    case ActivityType.RESET_PASSWORD:
+      return 'Vous avez réinitialisé votre mot de passe';
     default:
-      return 'Unknown action occurred';
+      return 'Action inconnue';
   }
 }
 

@@ -17,6 +17,8 @@ export const users = pgTable('users', {
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow(),
   deletedAt: timestamp('deleted_at'),
+  passwordResetToken: text('password_reset_token'),
+  passwordResetTokenExpiresAt: timestamp('password_reset_token_expires_at'),
 });
 
 export const teams = pgTable('teams', {
@@ -139,4 +141,6 @@ export enum ActivityType {
   REMOVE_TEAM_MEMBER = 'REMOVE_TEAM_MEMBER',
   INVITE_TEAM_MEMBER = 'INVITE_TEAM_MEMBER',
   ACCEPT_INVITATION = 'ACCEPT_INVITATION',
+  REQUEST_PASSWORD_RESET = 'REQUEST_PASSWORD_RESET',
+  RESET_PASSWORD = 'RESET_PASSWORD',
 }
