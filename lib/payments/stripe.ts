@@ -11,9 +11,8 @@ import {
 //  apiVersion: '2025-04-30.basil'
 //});
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-08-27.basil'  // ✅ Version supportée par votre SDK
-});
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+// Utilisera la version par défaut épinglée du SDK
 
 export async function createCheckoutSession({
   team,
