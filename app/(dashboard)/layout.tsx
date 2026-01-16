@@ -42,10 +42,10 @@ function UserMenu() {
           href="/pricing"
           className="text-sm font-medium text-gray-700 hover:text-gray-900"
         >
-          Pricing
+          Prix
         </Link>
         <Button asChild className="rounded-full">
-          <Link href="/sign-up">Sign Up</Link>
+          <Link href="/sign-up">S'inscrire</Link>
         </Button>
       </>
     );
@@ -73,7 +73,7 @@ function UserMenu() {
           <button type="submit" className="flex w-full">
             <DropdownMenuItem className="w-full flex-1 cursor-pointer">
               <LogOut className="mr-2 h-4 w-4" />
-              <span>Sign out</span>
+              <span>Se déconnecter</span>
             </DropdownMenuItem>
           </button>
         </form>

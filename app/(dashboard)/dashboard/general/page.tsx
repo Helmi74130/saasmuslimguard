@@ -34,12 +34,12 @@ function AccountForm({
     <>
       <div>
         <Label htmlFor="name" className="mb-2">
-          Name
+          Nom
         </Label>
         <Input
           id="name"
           name="name"
-          placeholder="Enter your name"
+          placeholder="Entrez votre nom"
           defaultValue={state.name || nameValue}
           required
         />
@@ -52,7 +52,7 @@ function AccountForm({
           id="email"
           name="email"
           type="email"
-          placeholder="Enter your email"
+          placeholder="Entrez votre adresse e-mail"
           defaultValue={emailValue}
           required
         />
@@ -81,12 +81,12 @@ export default function GeneralPage() {
   return (
     <section className="flex-1 p-4 lg:p-8">
       <h1 className="text-lg lg:text-2xl font-medium text-gray-900 mb-6">
-        General Settings
+        Paramètres généraux
       </h1>
 
       <Card>
         <CardHeader>
-          <CardTitle>Account Information</CardTitle>
+          <CardTitle>Informations du compte</CardTitle>
         </CardHeader>
         <CardContent>
           <form className="space-y-4" action={formAction}>
@@ -107,10 +107,10 @@ export default function GeneralPage() {
               {isPending ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Saving...
+                  Enregistrement...
                 </>
               ) : (
-                'Save Changes'
+                'Enregistrer les modifications'
               )}
             </Button>
           </form>
