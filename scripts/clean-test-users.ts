@@ -15,28 +15,28 @@ async function cleanDatabase() {
   try {
     // 1. Supprimer toutes les invitations
     console.log('📧 Suppression des invitations...');
-    const deletedInvitations = await db.delete(invitations);
-    console.log(`   ✓ ${deletedInvitations.rowCount || 0} invitations supprimées\n`);
+    await db.delete(invitations);
+    console.log('   ✓ Invitations supprimées\n');
 
     // 2. Supprimer tous les logs d'activité
     console.log('📝 Suppression des logs d\'activité...');
-    const deletedLogs = await db.delete(activityLogs);
-    console.log(`   ✓ ${deletedLogs.rowCount || 0} logs supprimés\n`);
+    await db.delete(activityLogs);
+    console.log('   ✓ Logs supprimés\n');
 
     // 3. Supprimer tous les membres d'équipe
     console.log('👥 Suppression des membres d\'équipe...');
-    const deletedMembers = await db.delete(teamMembers);
-    console.log(`   ✓ ${deletedMembers.rowCount || 0} membres supprimés\n`);
+    await db.delete(teamMembers);
+    console.log('   ✓ Membres supprimés\n');
 
     // 4. Supprimer toutes les équipes
     console.log('🏢 Suppression des équipes...');
-    const deletedTeams = await db.delete(teams);
-    console.log(`   ✓ ${deletedTeams.rowCount || 0} équipes supprimées\n`);
+    await db.delete(teams);
+    console.log('   ✓ Équipes supprimées\n');
 
     // 5. Supprimer tous les utilisateurs
     console.log('👤 Suppression des utilisateurs...');
-    const deletedUsers = await db.delete(users);
-    console.log(`   ✓ ${deletedUsers.rowCount || 0} utilisateurs supprimés\n`);
+    await db.delete(users);
+    console.log('   ✓ Utilisateurs supprimés\n');
 
     // 6. Réinitialiser les séquences d'auto-incrémentation
     console.log('🔄 Réinitialisation des séquences d\'ID...');

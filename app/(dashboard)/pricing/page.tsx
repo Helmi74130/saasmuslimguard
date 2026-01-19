@@ -2,6 +2,19 @@ import { checkoutAction } from '@/lib/payments/actions';
 import { Check } from 'lucide-react';
 import { getStripePrices, getStripeProducts } from '@/lib/payments/stripe';
 import { SubmitButton } from './submit-button';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Tarifs MuslimGuard – Plans Gratuit & Premium | Contrôle Parental Islamique',
+  description: 'Découvrez les tarifs de MuslimGuard : plan gratuit avec fonctionnalités essentielles ou Premium pour une protection complète. Essai gratuit de 7 jours, annulation à tout moment.',
+  keywords: 'tarifs contrôle parental islamique, prix muslimguard, abonnement protection famille musulmane, plan gratuit filtre internet halal',
+  openGraph: {
+    title: 'Tarifs MuslimGuard – Protection Famille dès 0€',
+    description: 'Plan gratuit ou Premium à partir de 4,99€/mois. Essai gratuit de 7 jours, sans engagement.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
+};
 
 // Prices are fresh for one hour max
 export const revalidate = 3600;
