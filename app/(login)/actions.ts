@@ -25,7 +25,7 @@ import {
   validatedAction,
   validatedActionWithUser
 } from '@/lib/auth/middleware';
-import { sendPasswordResetEmail } from '@/lib/email';
+import { sendPasswordResetEmail, sendWelcomeEmail } from '@/lib/email';
 import crypto from 'crypto';
 
 async function logActivity(
@@ -213,6 +213,12 @@ export const signUp = validatedAction(signUpSchema, async (data, formData) => {
     logActivity(teamId, createdUser.id, ActivityType.SIGN_UP),
     setSession(createdUser)
   ]);
+
+  // Send welcome email (don't block on email sending)
+  sendWelcomeEmail(email, createdUser.name || undefined).catch((error) => {
+    console.error('Failed to send welcome email:', error);
+    // Don't fail the signup if email fails
+  });
 
   const redirectTo = formData.get('redirect') as string | null;
   if (redirectTo === 'checkout') {
