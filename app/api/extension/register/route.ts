@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db/drizzle';
-import { extensionTokens, activityLogs, ActivityType } from '@/lib/db/schema';
+import { extensionTokens } from '@/lib/db/schema';
 import { generateExtensionToken } from '@/lib/auth/extension';
 
 export async function POST(request: NextRequest) {
@@ -32,17 +32,8 @@ export async function POST(request: NextRequest) {
       })
       .returning();
 
-    // Log de l'activité (sans teamId car pas encore lié)
-    await db.insert(activityLogs).values({
-      teamId: 0, // Temporaire - sera mis à jour lors du link-account
-      userId: null,
-      action: ActivityType.EXTENSION_REGISTERED,
-      timestamp: new Date(),
-      ipAddress:
-        request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
-        request.headers.get('x-real-ip') ||
-        null,
-    });
+    // Note: Le log d'activité EXTENSION_REGISTERED sera créé lors du link-account
+    // (quand on aura un teamId valide), pas ici car on n'a pas encore de team
 
     return NextResponse.json({
       success: true,

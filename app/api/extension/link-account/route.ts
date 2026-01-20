@@ -64,6 +64,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Si déjà lié au même user et même team, ne rien faire
+    if (extensionToken.teamId === team.id && extensionToken.userId === user.id) {
+      return NextResponse.json({
+        success: true,
+        message: 'Extension already linked to your account',
+        alreadyLinked: true,
+        team: {
+          id: team.id,
+          name: team.name,
+          subscriptionStatus: team.subscriptionStatus,
+          planName: team.planName,
+        },
+      });
+    }
+
     // Lier le token à la team et à l'utilisateur
     await db
       .update(extensionTokens)
