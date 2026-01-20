@@ -31,7 +31,7 @@ function SubscriptionSkeleton() {
   return (
     <Card className="mb-8 h-[140px]">
       <CardHeader>
-        <CardTitle>Abonnement d'équipe</CardTitle>
+        <CardTitle>Abonnement familial</CardTitle>
       </CardHeader>
     </Card>
   );
@@ -43,7 +43,7 @@ function ManageSubscription() {
   return (
     <Card className="mb-8">
       <CardHeader>
-        <CardTitle>Abonnement d'équipe</CardTitle>
+        <CardTitle>Abonnement familial</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -54,10 +54,10 @@ function ManageSubscription() {
               </p>
               <p className="text-sm text-muted-foreground">
                 {teamData?.subscriptionStatus === 'active'
-                  ? 'Billed monthly'
+                  ? 'Facturé mensuellement'
                   : teamData?.subscriptionStatus === 'trialing'
-                  ? 'Trial period'
-                  : 'No active subscription'}
+                  ? 'Période d\'essai'
+                  : 'Aucun abonnement actif'}
               </p>
             </div>
             <form action={customerPortalAction}>
@@ -76,7 +76,7 @@ function TeamMembersSkeleton() {
   return (
     <Card className="mb-8 h-[140px]">
       <CardHeader>
-        <CardTitle>Membres de l'équipe</CardTitle>
+        <CardTitle>Membres de la famille</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="animate-pulse space-y-4 mt-1">
@@ -108,10 +108,10 @@ function TeamMembers() {
     return (
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle>Membres de l'équipe</CardTitle>
+          <CardTitle>Membres de la famille</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-muted-foreground">Aucun membre d'équipe pour le moment.</p>
+          <p className="text-muted-foreground">Aucun membre de la famille pour le moment.</p>
         </CardContent>
       </Card>
     );
@@ -120,7 +120,7 @@ function TeamMembers() {
   return (
     <Card className="mb-8">
       <CardHeader>
-        <CardTitle>Membres de l'équipe</CardTitle>
+        <CardTitle>Membres de la famille</CardTitle>
       </CardHeader>
       <CardContent>
         <ul className="space-y-4">
@@ -162,7 +162,7 @@ function TeamMembers() {
                     size="sm"
                     disabled={isRemovePending}
                   >
-                    {isRemovePending ? 'Removing...' : 'Remove'}
+                    {isRemovePending ? 'Suppression...' : 'Retirer'}
                   </Button>
                 </form>
               ) : null}
@@ -181,7 +181,7 @@ function InviteTeamMemberSkeleton() {
   return (
     <Card className="h-[260px]">
       <CardHeader>
-        <CardTitle>Inviter un membre de l'équipe</CardTitle>
+        <CardTitle>Inviter un membre de la famille</CardTitle>
       </CardHeader>
     </Card>
   );
@@ -198,7 +198,7 @@ function InviteTeamMember() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Inviter un membre de l'équipe</CardTitle>
+        <CardTitle>Inviter un membre de la famille</CardTitle>
       </CardHeader>
       <CardContent>
         <form action={inviteAction} className="space-y-4">
@@ -210,7 +210,7 @@ function InviteTeamMember() {
               id="email"
               name="email"
               type="email"
-              placeholder="Enter email"
+              placeholder="Entrez l'adresse email"
               required
               disabled={!isOwner}
             />
@@ -261,7 +261,7 @@ function InviteTeamMember() {
       {!isOwner && (
         <CardFooter>
           <p className="text-sm text-muted-foreground">
-            Vous devez être un propriétaire d'équipe pour inviter de nouveaux membres.
+            Vous devez être propriétaire de la famille pour inviter de nouveaux membres.
           </p>
         </CardFooter>
       )}
@@ -272,7 +272,7 @@ function InviteTeamMember() {
 export default function SettingsPage() {
   return (
     <section className="flex-1 p-4 lg:p-8">
-      <h1 className="text-lg lg:text-2xl font-medium mb-6">Paramètres de l'équipe</h1>
+      <h1 className="text-lg lg:text-2xl font-medium mb-6">Paramètres de la famille</h1>
       <Suspense fallback={<SubscriptionSkeleton />}>
         <ManageSubscription />
       </Suspense>

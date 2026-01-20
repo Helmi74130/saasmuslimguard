@@ -1,0 +1,41 @@
+### Extension API Tests
+### Utilisez ce fichier avec l'extension REST Client de VS Code
+
+@baseUrl = http://localhost:3000
+@extensionToken = REPLACE_WITH_TOKEN_FROM_REGISTER
+
+### 1. Register Extension
+POST {{baseUrl}}/api/extension/register
+Content-Type: application/json
+
+{
+  "deviceName": "Chrome - Windows 10",
+  "extensionVersion": "1.0.0"
+}
+
+### 2. Verify Token (Before Linking)
+GET {{baseUrl}}/api/extension/verify
+X-Extension-Token: {{extensionToken}}
+
+### 3. Link Account (Must be authenticated via browser first)
+# Connectez-vous d'abord sur http://localhost:3000/sign-in
+# Puis copiez le cookie 'session' depuis les DevTools
+POST {{baseUrl}}/api/extension/link-account
+Content-Type: application/json
+Cookie: session=YOUR_SESSION_COOKIE_HERE
+
+{
+  "token": "{{extensionToken}}"
+}
+
+### 4. Verify Token (After Linking)
+GET {{baseUrl}}/api/extension/verify
+X-Extension-Token: {{extensionToken}}
+
+### 5. List Extensions
+GET {{baseUrl}}/api/user/extensions
+Cookie: session=YOUR_SESSION_COOKIE_HERE
+
+### 6. Revoke Extension
+DELETE {{baseUrl}}/api/extension/revoke?tokenId=1
+Cookie: session=YOUR_SESSION_COOKIE_HERE

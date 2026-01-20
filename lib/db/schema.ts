@@ -70,15 +70,29 @@ export const invitations = pgTable('invitations', {
   status: varchar('status', { length: 20 }).notNull().default('pending'),
 });
 
+export const extensionTokens = pgTable('extension_tokens', {
+  id: serial('id').primaryKey(),
+  token: varchar('token', { length: 255 }).notNull().unique(),
+  teamId: integer('team_id').references(() => teams.id, { onDelete: 'cascade' }),
+  userId: integer('user_id').references(() => users.id, { onDelete: 'set null' }),
+  deviceName: varchar('device_name', { length: 100 }),
+  extensionVersion: varchar('extension_version', { length: 20 }),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  lastUsedAt: timestamp('last_used_at'),
+  revokedAt: timestamp('revoked_at'),
+});
+
 export const teamsRelations = relations(teams, ({ many }) => ({
   teamMembers: many(teamMembers),
   activityLogs: many(activityLogs),
   invitations: many(invitations),
+  extensionTokens: many(extensionTokens),
 }));
 
 export const usersRelations = relations(users, ({ many }) => ({
   teamMembers: many(teamMembers),
   invitationsSent: many(invitations),
+  extensionTokens: many(extensionTokens),
 }));
 
 export const invitationsRelations = relations(invitations, ({ one }) => ({
@@ -114,6 +128,17 @@ export const activityLogsRelations = relations(activityLogs, ({ one }) => ({
   }),
 }));
 
+export const extensionTokensRelations = relations(extensionTokens, ({ one }) => ({
+  team: one(teams, {
+    fields: [extensionTokens.teamId],
+    references: [teams.id],
+  }),
+  user: one(users, {
+    fields: [extensionTokens.userId],
+    references: [users.id],
+  }),
+}));
+
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
 export type Team = typeof teams.$inferSelect;
@@ -124,6 +149,8 @@ export type ActivityLog = typeof activityLogs.$inferSelect;
 export type NewActivityLog = typeof activityLogs.$inferInsert;
 export type Invitation = typeof invitations.$inferSelect;
 export type NewInvitation = typeof invitations.$inferInsert;
+export type ExtensionToken = typeof extensionTokens.$inferSelect;
+export type NewExtensionToken = typeof extensionTokens.$inferInsert;
 export type TeamDataWithMembers = Team & {
   teamMembers: (TeamMember & {
     user: Pick<User, 'id' | 'name' | 'email'>;
@@ -143,4 +170,7 @@ export enum ActivityType {
   ACCEPT_INVITATION = 'ACCEPT_INVITATION',
   REQUEST_PASSWORD_RESET = 'REQUEST_PASSWORD_RESET',
   RESET_PASSWORD = 'RESET_PASSWORD',
+  EXTENSION_REGISTERED = 'EXTENSION_REGISTERED',
+  EXTENSION_LINKED = 'EXTENSION_LINKED',
+  EXTENSION_REVOKED = 'EXTENSION_REVOKED',
 }

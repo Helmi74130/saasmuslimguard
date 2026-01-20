@@ -10,6 +10,9 @@ import {
   Mail,
   CheckCircle,
   KeyRound,
+  Puzzle,
+  Link2,
+  XCircle,
   type LucideIcon,
 } from 'lucide-react';
 import { ActivityType } from '@/lib/db/schema';
@@ -28,6 +31,9 @@ const iconMap: Record<ActivityType, LucideIcon> = {
   [ActivityType.ACCEPT_INVITATION]: CheckCircle,
   [ActivityType.REQUEST_PASSWORD_RESET]: KeyRound,
   [ActivityType.RESET_PASSWORD]: KeyRound,
+  [ActivityType.EXTENSION_REGISTERED]: Puzzle,
+  [ActivityType.EXTENSION_LINKED]: Link2,
+  [ActivityType.EXTENSION_REVOKED]: XCircle,
 };
 
 function getRelativeTime(date: Date) {
@@ -59,9 +65,9 @@ function formatAction(action: ActivityType): string {
     case ActivityType.UPDATE_ACCOUNT:
       return 'Vous avez mis à jour votre compte';
     case ActivityType.CREATE_TEAM:
-      return 'Vous avez créé une nouvelle équipe';
+      return 'Vous avez créé une nouvelle famille';
     case ActivityType.REMOVE_TEAM_MEMBER:
-      return 'Vous avez retiré un membre de l\'équipe';
+      return 'Vous avez retiré un membre de la famille';
     case ActivityType.INVITE_TEAM_MEMBER:
       return 'Vous avez invité un membre';
     case ActivityType.ACCEPT_INVITATION:
@@ -70,6 +76,12 @@ function formatAction(action: ActivityType): string {
       return 'Vous avez demandé une réinitialisation de mot de passe';
     case ActivityType.RESET_PASSWORD:
       return 'Vous avez réinitialisé votre mot de passe';
+    case ActivityType.EXTENSION_REGISTERED:
+      return 'Une extension a été enregistrée';
+    case ActivityType.EXTENSION_LINKED:
+      return 'Une extension a été liée à votre compte';
+    case ActivityType.EXTENSION_REVOKED:
+      return 'Une extension a été révoquée';
     default:
       return 'Action inconnue';
   }
