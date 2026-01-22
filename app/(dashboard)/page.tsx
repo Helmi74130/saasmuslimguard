@@ -10,6 +10,7 @@ import FAQsThree from '@/components/faqs-3';
 import FooterSection from '@/components/footer';
 import ContentSectionOne from '@/components/content-1';
 import type { Metadata } from 'next'
+import Features from '@/components/features-3';
 
 export const metadata: Metadata = {
   title: 'MuslimGuard – Le contrôle parental islamique intelligent',
@@ -22,6 +23,7 @@ export default function HomePage() {
   return (
     <main>
       <HeroSection />
+      <Features />
       <FeaturesSection />
       <ContentSectionOne />
       <ContentSection />

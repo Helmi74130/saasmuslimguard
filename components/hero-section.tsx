@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
+import { motion } from 'motion/react'
 
 
 export default function HeroSection() {
@@ -26,22 +27,42 @@ export default function HeroSection() {
                     {/* Bottom gradient fade */}
                     <div className="absolute bottom-0 left-0 right-0 h-[300px] bg-gradient-to-t from-[rgba(0,52,99,0.05)] to-transparent" />
                     {/* Subtle grid pattern overlay */}
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(0,52,99,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,52,99,0.02)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black_40%,transparent_100%)]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(0,52,99,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,52,99,0.08)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black_40%,transparent_100%)]" />
                 </div>
 
                 <section className="relative dark:bg-background overflow-hidden">
                     <div className="relative mx-auto max-w-5xl px-6 pt-28 lg:pt-24">
-                        <div className="relative z-10 mx-auto max-w-2xl text-center">
-                            <h1 className="text-balance text-4xl font-semibold md:text-5xl text-[#003463] lg:text-6xl">Le 1er contrôle parental conçu pour les familles musulmanes</h1>
-                            <p className="text-muted-foreground mx-auto my-8 max-w-2xl text-xl">Ce que vos enfants voient aujourd’hui façonne ce qu’ils deviendront demain.</p>
+                        <div className="relative z-10 mx-auto max-w-3xl text-center">
+                            <motion.h1
+                                className="text-balance text-4xl font-semibold md:text-5xl lg:text-6xl bg-gradient-to-r from-[#0C3E6A] via-blue-500 to-emerald-500 bg-clip-text text-transparent"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                            >
+                                Le 1er contrôle parental conçu pour les familles musulmanes
+                            </motion.h1>
+                            <motion.p
+                                className="text-muted-foreground mx-auto my-8 max-w-2xl text-xl"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                            >
+                                Ce que vos enfants voient aujourd'hui façonne ce qu'ils deviendront demain.
+                            </motion.p>
 
-                            <Button
-                                asChild
-                                size="lg">
-                                <Link href="/pricing">
-                                    <span className="btn-label">Commencer gratuitement</span>
-                                </Link>
-                            </Button>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+                            >
+                                <Button
+                                    asChild
+                                    size="lg">
+                                    <Link href="/pricing">
+                                        <span className="btn-label">Commencer gratuitement</span>
+                                    </Link>
+                                </Button>
+                            </motion.div>
                         </div>
                     </div>
 
@@ -68,86 +89,83 @@ export default function HeroSection() {
                 </section>
                 <section className="dark:bg-background relative z-10 py-16">
                     <div className="m-auto max-w-5xl px-6">
-                        <h2 className="text-center text-lg font-medium">Your favorite companies are our partners.</h2>
-                        <div className="mx-auto mt-20 flex max-w-4xl flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16 sm:gap-y-12">
-                            <img
-                                className="h-5 w-fit dark:invert"
-                                src="/images/chrome.svg"
-                                alt="Nvidia Logo"
-                                height="20"
-                                width="auto"
-                            />
-                            <img
-                                className="h-4 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/column.svg"
-                                alt="Column Logo"
-                                height="16"
-                                width="auto"
-                            />
-                            <img
-                                className="h-4 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/github.svg"
-                                alt="GitHub Logo"
-                                height="16"
-                                width="auto"
-                            />
-                            <img
-                                className="h-5 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/nike.svg"
-                                alt="Nike Logo"
-                                height="20"
-                                width="auto"
-                            />
-                            <img
-                                className="h-4 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/laravel.svg"
-                                alt="Laravel Logo"
-                                height="16"
-                                width="auto"
-                            />
-                            <img
-                                className="h-7 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/lilly.svg"
-                                alt="Lilly Logo"
-                                height="28"
-                                width="auto"
-                            />
-                            <img
-                                className="h-5 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/lemonsqueezy.svg"
-                                alt="Lemon Squeezy Logo"
-                                height="20"
-                                width="auto"
-                            />
-                            <img
-                                className="h-6 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/openai.svg"
-                                alt="OpenAI Logo"
-                                height="24"
-                                width="auto"
-                            />
-                            <img
-                                className="h-4 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/tailwindcss.svg"
-                                alt="Tailwind CSS Logo"
-                                height="16"
-                                width="auto"
-                            />
-                            <img
-                                className="h-5 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/vercel.svg"
-                                alt="Vercel Logo"
-                                height="20"
-                                width="auto"
-                            />
-                            <img
-                                className="h-5 w-fit dark:invert"
-                                src="https://html.tailus.io/blocks/customers/zapier.svg"
-                                alt="Zapier Logo"
-                                height="20"
-                                width="auto"
-                            />
-                        </div>
+                        <motion.h2
+                            className="text-center text-lg font-medium"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            Compatible avec les navigateurs les plus utilisés
+                        </motion.h2>
+                        <motion.div
+                            className="mx-auto mt-20 max-w-4xl space-y-16"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                        >
+                            {/* Première rangée */}
+                            <div className="grid grid-cols-3 gap-8 items-center">
+                                <div className="flex justify-center">
+                                    <img
+                                        className="h-10 w-auto sm:h-12"
+                                        src="/images/Chrome.svg"
+                                        alt="Chrome Logo"
+                                        height="48"
+                                        width="auto"
+                                    />
+                                </div>
+                                <div className="flex justify-center">
+                                    <img
+                                        className="h-10 w-auto sm:h-12"
+                                        src="/images/microsoft.png"
+                                        alt="Microsoft Logo"
+                                        height="48"
+                                        width="auto"
+                                    />
+                                </div>
+                                <div className="flex justify-center">
+                                    <img
+                                        className="h-10 w-auto sm:h-12"
+                                        src="/images/google.png"
+                                        alt="Google Logo"
+                                        height="48"
+                                        width="auto"
+                                    />
+                                </div>
+                            </div>
+                            {/* Deuxième rangée */}
+                            <div className="grid grid-cols-3 gap-8 items-center">
+                                <div className="flex justify-center">
+                                    <img
+                                        className="h-10 w-auto sm:h-12"
+                                        src="/images/edge.png"
+                                        alt="Edge Logo"
+                                        height="48"
+                                        width="auto"
+                                    />
+                                </div>
+                                <div className="flex justify-center">
+                                    <img
+                                        className="h-10 w-auto sm:h-12"
+                                        src="/images/opera.png"
+                                        alt="Opera Logo"
+                                        height="48"
+                                        width="auto"
+                                    />
+                                </div>
+                                <div className="flex justify-center">
+                                    <img
+                                        className="h-10 w-auto sm:h-12"
+                                        src="/images/Brave.png"
+                                        alt="Brave Logo"
+                                        height="48"
+                                        width="auto"
+                                    />
+                                </div>
+                            </div>
+                        </motion.div>
                     </div>
                 </section>
             </main>
