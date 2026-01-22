@@ -1,6 +1,3 @@
-import { Button } from '@/components/ui/button';
-import { ArrowRight, CreditCard, Database } from 'lucide-react';
-import { Terminal } from './terminal';
 import HeroSection from '@/components/hero-section';
 import FeaturesSection from '@/components/features-8';
 import ContentSection from '@/components/content-2';

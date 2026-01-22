@@ -42,7 +42,7 @@ export default function FeaturesSection() {
                                         </svg>
                                         <span className="mx-auto block w-fit text-5xl font-semibold text-[#0C3E6A]">100%</span>
                                     </motion.div>
-                                    <h2 className="mt-6 text-center text-3xl text-[#0C3E6A] font-semibold">Customizable</h2>
+                                    <h2 className="mt-6 text-center text-3xl text-[#0C3E6A] font-semibold">Personnalisable</h2>
                                 </CardContent>
                             </Card>
                         </motion.div>

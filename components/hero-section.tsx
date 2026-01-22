@@ -47,7 +47,7 @@ export default function HeroSection() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                             >
-                                Ce que vos enfants voient aujourd'hui façonne ce qu'ils deviendront demain.
+                                Protégez vos enfants des contenus haram, des distractions et des dangers du web — tout en respectant nos valeurs et les horaires de prière.
                             </motion.p>
 
                             <motion.div
@@ -59,9 +59,37 @@ export default function HeroSection() {
                                     asChild
                                     size="lg">
                                     <Link href="/pricing">
-                                        <span className="btn-label">Commencer gratuitement</span>
+                                        <span className="btn-label">Installer gratuitement maintenant</span>
                                     </Link>
                                 </Button>
+
+                                <motion.div
+                                    className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.6, delay: 0.6 }}
+                                >
+                                    <span className="flex items-center gap-1.5">
+                                        <svg className="h-4 w-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        Fonctionne sur PC & Mac
+                                    </span>
+                                    <span className="text-gray-300 dark:text-gray-600">•</span>
+                                    <span className="flex items-center gap-1.5">
+                                        <svg className="h-4 w-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        Installation en 2 minutes
+                                    </span>
+                                    <span className="text-gray-300 dark:text-gray-600">•</span>
+                                    <span className="flex items-center gap-1.5">
+                                        <svg className="h-4 w-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        Sans compétence technique
+                                    </span>
+                                </motion.div>
                             </motion.div>
                         </div>
                     </div>
@@ -110,7 +138,7 @@ export default function HeroSection() {
                                 <div className="flex justify-center">
                                     <img
                                         className="h-10 w-auto sm:h-12"
-                                        src="/images/Chrome.svg"
+                                        src="/images/Chrome.png"
                                         alt="Chrome Logo"
                                         height="48"
                                         width="auto"

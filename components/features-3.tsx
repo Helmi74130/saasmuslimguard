@@ -15,8 +15,8 @@ export default function Features() {
 
             <div className="@container relative mx-auto max-w-7xl px-6">
                 <div className="text-center">
-                    <h2 className="text-balance text-4xl font-semibold lg:text-5xl text-[#0C3E6A]">Une protection complète pour vos enfants</h2>
-                    <p className="mt-4">MuslimGuard offre une protection intelligente et respectueuse des valeurs islamiques</p>
+                    <h2 className="text-balance text-4xl font-semibold lg:text-5xl bg-gradient-to-r from-[#0C3E6A] via-blue-600 to-[#0C3E6A] bg-clip-text text-transparent">Les pires influences, le haram et les contenus dangereux commencent en ligne</h2>
+                    <p className="mt-4">Internet peut exposer vos enfants à des influences dangereuses. MuslimGuard bloque ce qui va à l’encontre de vos valeurs, pour protéger leur innocence et leur foi.</p>
                 </div>
                 <div className="mx-auto mt-8 grid max-w-sm gap-6 md:mt-16 md:max-w-none md:grid-cols-2 lg:grid-cols-3">
                     <Card className="group overflow-hidden shadow-zinc-950/5 border border-[#0C3E6A]/10 hover:border-[#0C3E6A]/20 transition-colors">
