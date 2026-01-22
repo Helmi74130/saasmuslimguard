@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { BarChart3, Shield, Eye, Clock, TrendingUp, Activity } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 const stats = [
     {
