@@ -138,7 +138,7 @@ export default function HeroSection() {
                                 <div className="flex justify-center">
                                     <img
                                         className="h-10 w-auto sm:h-12"
-                                        src="/images/Chrome.png"
+                                        src="/images/chrome.png"
                                         alt="Chrome Logo"
                                         height="48"
                                         width="auto"
