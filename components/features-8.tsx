@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, CardContent } from '@/components/ui/card'
-import { Shield, Users, Brain, Activity } from 'lucide-react'
+import { Shield, Users, Brain, Activity, EyeOff, UserPen  } from 'lucide-react'
 import { motion } from 'motion/react'
 
 export default function FeaturesSection() {
@@ -58,16 +58,15 @@ export default function FeaturesSection() {
                                 <CardContent className="pt-6">
                                     <div className="relative mx-auto flex aspect-square size-32 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">
                                         <motion.div
-                                            animate={{ rotate: 360 }}
-                                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                                           
                                             className="m-auto"
                                         >
-                                            <Brain className="size-12 text-purple-500" strokeWidth={1.5} />
+                                            <UserPen className="size-12 text-[#003463]" strokeWidth={1.5} />
                                         </motion.div>
                                     </div>
                                     <div className="relative z-10 mt-6 space-y-2 text-center">
-                                        <h2 className="text-lg font-medium text-[#003463] transition dark:text-white">Blocage intelligent</h2>
-                                        <p className="text-foreground">Analyse chaque page avec IA pour détecter instantanément les mots-clés inappropriés.</p>
+                                        <h2 className="text-lg font-medium text-[#003463] transition dark:text-white">Pensé pour les parents, tout simplement</h2>
+                                        <p className="text-foreground">Conçu pour que chaque parent puisse définir ses règles simplement, sans réglages compliqués ni connaissances techniques.</p>
                                     </div>
                                 </CardContent>
                             </Card>
@@ -94,7 +93,7 @@ export default function FeaturesSection() {
                                             }}
                                             className="m-auto"
                                         >
-                                            <Activity className="size-12 text-amber-500" strokeWidth={1.5} />
+                                            <Activity className="size-12 text-[#003463]" strokeWidth={1.5} />
                                         </motion.div>
                                     </div>
                                     <div className="relative z-10 mt-6 space-y-2 text-center">
@@ -120,14 +119,14 @@ export default function FeaturesSection() {
                                             whileHover={{ scale: 1.1 }}
                                             transition={{ duration: 0.2 }}
                                         >
-                                            <Shield
+                                            <EyeOff
                                                 className="m-auto size-5 text-rose-500"
                                                 strokeWidth={1.5}
                                             />
                                         </motion.div>
                                         <div className="space-y-2">
-                                            <h2 className="text-lg font-medium text-[#003463] transition dark:text-white">Votre cockpit familial</h2>
-                                            <p className="text-foreground">Tous les filtres, les blocages et les alertes réunis dans un seul espace simple.</p>
+                                            <h2 className="text-lg font-medium text-[#003463] transition dark:text-white">Un regard discret, mais toujours présent</h2>
+                                            <p className="text-foreground">Même quand vous n’êtes pas derrière l’écran, vous savez ce qui se passe. Un tableau de bord simple pour : comprendre l’activité ajuster les règles protéger sans étouffer</p>
                                         </div>
                                     </div>
                                     <div className="rounded-tl-(--radius) relative -mb-6 -mr-6 mt-6 h-fit border-l border-t p-6 py-6 sm:ml-6">

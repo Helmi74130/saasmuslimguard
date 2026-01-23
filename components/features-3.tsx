@@ -16,7 +16,7 @@ export default function Features() {
             <div className="@container relative mx-auto max-w-7xl px-6">
                 <div className="text-center">
                     <h2 className="text-balance text-4xl font-semibold lg:text-5xl bg-gradient-to-r from-[#0C3E6A] via-blue-600 to-[#0C3E6A] bg-clip-text text-transparent">Les pires influences, le haram et les contenus dangereux commencent en ligne</h2>
-                    <p className="mt-4">Internet peut exposer vos enfants à des influences dangereuses. MuslimGuard bloque ce qui va à l’encontre de vos valeurs, pour protéger leur innocence et leur foi.</p>
+                    <p className="mt-4">Internet expose nos enfants à des influences dangereuses. MuslimGuard bloque ce qui va à l’encontre de nos valeurs, pour protéger leur innocence et leur foi.</p>
                 </div>
                 <div className="mx-auto mt-8 grid max-w-sm gap-6 md:mt-16 md:max-w-none md:grid-cols-2 lg:grid-cols-3">
                     <Card className="group overflow-hidden shadow-zinc-950/5 border border-[#0C3E6A]/10 hover:border-[#0C3E6A]/20 transition-colors">
@@ -31,7 +31,7 @@ export default function Features() {
                                         <div className="w-2 h-2 rounded-full bg-green-400"></div>
                                     </div>
                                     <div className="flex-1 bg-white dark:bg-gray-600 rounded px-2 py-0.5">
-                                        <p className="text-[9px] text-gray-500 dark:text-gray-300">example-site.com</p>
+                                        <p className="text-[9px] text-gray-500 dark:text-gray-300">haram-site.com</p>
                                     </div>
                                 </div>
 
@@ -88,7 +88,7 @@ export default function Features() {
                             </div>
 
                             <h3 className="font-semibold text-center">Bloquez ce que VOUS jugez inacceptable</h3>
-                            <p className="text-sm text-center">Contrairement aux autres contrôles parentaux qui appliquent des listes prédéfinies, ici c'est vous qui choisissez les sites et contenus à bloquer, selon nos valeurs et celles de votre famille.</p>
+                            <p className="text-sm text-center">Contrairement aux autres contrôles parentaux qui appliquent des listes prédéfinies, ici c'est vous qui choisissez les sites et contenus à bloquer, selon nos valeurs.</p>
                         </CardContent>
                     </Card>
 
@@ -143,7 +143,7 @@ export default function Features() {
                             </div>
 
                             <h3 className="font-semibold text-center">Détection de mots-clés en temps réel</h3>
-                            <p className="text-sm text-center">Entrez vos mots-clés, et MuslimGuard empêche automatiquement la navigation dès qu'ils apparaissent — même sur des sites non listés.</p>
+                            <p className="text-sm text-center">Entrez les mots que vous jugez inacceptables. MuslimGuard les détecte en temps réel et empêche automatiquement la navigation dès qu'ils apparaissent même sur des sites non listés.</p>
                         </CardContent>
                     </Card>
 
@@ -217,16 +217,99 @@ export default function Features() {
                             </div>
 
                             <h3 className="font-semibold text-center">Pause automatique pendant les prières</h3>
-                            <p className="text-sm text-center">Contrairement aux autres contrôles parentaux, MuslimGuard interrompt automatiquement Internet pendant les heures de prière, afin que vos enfants puissent se consacrer pleinement à leurs obligations religieuses.</p>
+                            <p className="text-sm text-center">MuslimGuard est le premier contrôle parental à mettre Internet en pause pendant les heures de prière, pour aider nos enfants à se concentrer pleinement sur leurs obligations religieuses.</p>
                         </CardContent>
                     </Card>
 
                     <Card className="group overflow-hidden shadow-zinc-950/5 border border-rose-400/10 hover:border-rose-400/20 transition-colors">
                         <CardContent className="space-y-3">
-                            {/* Server to Local Computer Animation */}
+                            {/* Local Computer to Server Animation (Data stays local) */}
                             <div className="relative bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20 rounded-lg p-6 border border-rose-200 dark:border-rose-800 overflow-hidden min-h-[160px] flex items-center justify-center">
-                                {/* Cloud Server (left side) - gets crossed out */}
+                                {/* Local Computer (left side) - stays secure with lock */}
                                 <div className="absolute left-8">
+                                    <motion.div
+                                        className="relative"
+                                        animate={{
+                                            scale: [1, 1.05, 1],
+                                        }}
+                                        transition={{
+                                            duration: 6,
+                                            repeat: Infinity,
+                                            times: [0, 0.1, 0.2]
+                                        }}
+                                    >
+                                        {/* Computer/Laptop icon */}
+                                        <svg className="w-14 h-14 text-rose-600 dark:text-rose-400" fill="currentColor" viewBox="0 0 24 24">
+                                            <rect x="3" y="4" width="18" height="12" rx="1" opacity="0.9"/>
+                                            <rect x="5" y="6" width="14" height="8" fill="white" opacity="0.3"/>
+                                            <path d="M2 18h20v1a1 1 0 01-1 1H3a1 1 0 01-1-1v-1z"/>
+                                            <rect x="10" y="17" width="4" height="1" opacity="0.6"/>
+                                        </svg>
+
+                                        {/* Lock icon on computer - always visible */}
+                                        <motion.div
+                                            className="absolute -top-2 -right-2"
+                                            animate={{
+                                                scale: [1, 1.1, 1],
+                                            }}
+                                            transition={{
+                                                duration: 2,
+                                                repeat: Infinity,
+                                                repeatDelay: 4
+                                            }}
+                                        >
+                                            <div className="bg-green-500 rounded-full p-1">
+                                                <Lock className="w-3 h-3 text-white" />
+                                            </div>
+                                        </motion.div>
+
+                                        {/* Protective glow around computer */}
+                                        <motion.div
+                                            className="absolute inset-0 rounded-full blur-xl"
+                                            style={{
+                                                background: 'radial-gradient(circle, rgba(34, 197, 94, 0.4) 0%, transparent 70%)'
+                                            }}
+                                            animate={{
+                                                opacity: [0.3, 0.5, 0.3],
+                                                scale: [1, 1.2, 1]
+                                            }}
+                                            transition={{
+                                                duration: 3,
+                                                repeat: Infinity,
+                                            }}
+                                        />
+                                    </motion.div>
+                                </div>
+
+                                {/* Data particles attempting to travel from computer to cloud (but blocked) */}
+                                {[...Array(6)].map((_, i) => (
+                                    <motion.div
+                                        key={i}
+                                        className="absolute w-1.5 h-1.5 bg-rose-500 rounded-full"
+                                        initial={{
+                                            left: '35%',
+                                            top: '50%',
+                                            opacity: 0,
+                                            scale: 0
+                                        }}
+                                        animate={{
+                                            left: ['35%', '50%', '50%'],
+                                            top: ['50%', `${48 + i * 1}%`, `${48 + i * 1}%`],
+                                            opacity: [0, 1, 0],
+                                            scale: [0, 1, 0.3]
+                                        }}
+                                        transition={{
+                                            duration: 2,
+                                            delay: 0.5 + (i * 0.15),
+                                            repeat: Infinity,
+                                            repeatDelay: 3,
+                                            ease: "easeOut"
+                                        }}
+                                    />
+                                ))}
+
+                                {/* Cloud Server (right side) - gets crossed out */}
+                                <div className="absolute right-8">
                                     {/* Server cloud icon */}
                                     <motion.div
                                         className="relative"
@@ -269,138 +352,48 @@ export default function Features() {
                                     </motion.div>
                                 </div>
 
-                                {/* Data particles traveling from cloud to computer */}
-                                {[...Array(6)].map((_, i) => (
-                                    <motion.div
-                                        key={i}
-                                        className="absolute w-1.5 h-1.5 bg-rose-500 rounded-full"
-                                        initial={{
-                                            left: '35%',
-                                            top: '50%',
-                                            opacity: 0,
-                                            scale: 0
-                                        }}
-                                        animate={{
-                                            left: ['35%', '65%'],
-                                            top: ['50%', `${45 + i * 2}%`],
-                                            opacity: [0, 1, 1, 0],
-                                            scale: [0, 1, 1, 0.5]
-                                        }}
-                                        transition={{
-                                            duration: 1.5,
-                                            delay: 2.5 + (i * 0.15),
-                                            repeat: Infinity,
-                                            repeatDelay: 2.5,
-                                            ease: "easeInOut"
-                                        }}
-                                    />
-                                ))}
-
-                                {/* Local Computer (right side) - illuminates */}
-                                <div className="absolute right-8">
-                                    <motion.div
-                                        className="relative"
-                                        animate={{
-                                            scale: [1, 1, 1.1, 1.05],
-                                        }}
-                                        transition={{
-                                            duration: 6,
-                                            repeat: Infinity,
-                                            times: [0, 0.3, 0.5, 0.55]
-                                        }}
-                                    >
-                                        {/* Computer/Laptop icon */}
-                                        <svg className="w-14 h-14 text-rose-600 dark:text-rose-400" fill="currentColor" viewBox="0 0 24 24">
-                                            <rect x="3" y="4" width="18" height="12" rx="1" opacity="0.9"/>
-                                            <rect x="5" y="6" width="14" height="8" fill="white" opacity="0.3"/>
-                                            <path d="M2 18h20v1a1 1 0 01-1 1H3a1 1 0 01-1-1v-1z"/>
-                                            <rect x="10" y="17" width="4" height="1" opacity="0.6"/>
-                                        </svg>
-
-                                        {/* Glow effect when computer "receives" data */}
-                                        <motion.div
-                                            className="absolute inset-0 rounded-full blur-xl"
-                                            style={{
-                                                background: 'radial-gradient(circle, rgba(244, 63, 94, 0.6) 0%, transparent 70%)'
-                                            }}
-                                            animate={{
-                                                opacity: [0, 0, 0, 0.8, 0.8, 0.3],
-                                                scale: [0.5, 0.5, 0.5, 1.5, 1.5, 1.2]
-                                            }}
-                                            transition={{
-                                                duration: 6,
-                                                repeat: Infinity,
-                                                times: [0, 0.3, 0.4, 0.5, 0.7, 1]
-                                            }}
-                                        />
-
-                                        {/* Lock icon appears on computer */}
-                                        <motion.div
-                                            className="absolute -top-2 -right-2"
-                                            initial={{ opacity: 0, scale: 0 }}
-                                            animate={{
-                                                opacity: [0, 0, 0, 1, 1],
-                                                scale: [0, 0, 0, 1.2, 1],
-                                                rotate: [0, 0, 0, 10, 0]
-                                            }}
-                                            transition={{
-                                                duration: 6,
-                                                repeat: Infinity,
-                                                times: [0, 0.45, 0.5, 0.55, 0.6]
-                                            }}
-                                        >
-                                            <div className="bg-green-500 rounded-full p-1">
-                                                <Lock className="w-3 h-3 text-white" />
-                                            </div>
-                                        </motion.div>
-
-                                        {/* Data particles collecting around computer */}
-                                        {[...Array(8)].map((_, i) => (
-                                            <motion.div
-                                                key={`orbit-${i}`}
-                                                className="absolute w-1 h-1 bg-rose-400 rounded-full"
-                                                style={{
-                                                    left: '50%',
-                                                    top: '50%'
-                                                }}
-                                                animate={{
-                                                    x: [0, Math.cos((i * Math.PI * 2) / 8) * 20],
-                                                    y: [0, Math.sin((i * Math.PI * 2) / 8) * 20],
-                                                    opacity: [0, 0, 0, 1, 0.5],
-                                                    scale: [0, 0, 0, 1, 0.8]
-                                                }}
-                                                transition={{
-                                                    duration: 6,
-                                                    repeat: Infinity,
-                                                    times: [0, 0.45, 0.5, 0.6, 1],
-                                                    ease: "easeOut"
-                                                }}
-                                            />
-                                        ))}
-                                    </motion.div>
-                                </div>
-
-                                {/* Arrow showing direction */}
+                                {/* Arrow showing blocked direction (pointing right but fading) */}
                                 <motion.div
                                     className="absolute left-1/2 -translate-x-1/2 text-rose-500"
                                     animate={{
-                                        opacity: [0, 0, 1, 1, 0],
-                                        x: [-10, -10, 5, 5, 10]
+                                        opacity: [0, 1, 0, 0],
+                                        x: [-5, 0, 5, 5]
                                     }}
                                     transition={{
                                         duration: 6,
                                         repeat: Infinity,
-                                        times: [0, 0.25, 0.35, 0.45, 0.5]
+                                        times: [0, 0.15, 0.25, 1]
                                     }}
                                 >
                                     <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
                                         <path d="M5 12h14M13 5l7 7-7 7"/>
                                     </svg>
                                 </motion.div>
+
+                                {/* "Blocked" shield appears in the middle */}
+                                <motion.div
+                                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                                    initial={{ opacity: 0, scale: 0 }}
+                                    animate={{
+                                        opacity: [0, 0, 1, 1, 0.7],
+                                        scale: [0, 0, 1.2, 1, 1],
+                                        rotate: [0, 0, 10, 0, 0]
+                                    }}
+                                    transition={{
+                                        duration: 6,
+                                        repeat: Infinity,
+                                        times: [0, 0.25, 0.35, 0.4, 1]
+                                    }}
+                                >
+                                    <div className="bg-red-500 rounded-full p-2 shadow-lg">
+                                        <ShieldBan className="w-6 h-6 text-white" />
+                                    </div>
+                                </motion.div>
                             </div>
 
                             <h3 className="font-semibold text-center">Vos données restent chez vous</h3>
-                            <p className="text-sm text-center">Contrairement aux autres contrôles parentaux qui stockent vos données sur des serveurs externes, tout reste local avec MuslimGuard. Vos paramètres, l'historique de navigation et les mots-clés que vous définissez restent uniquement sur votre ordinateur</p>
+                            <p className="text-sm text-center">Vos paramètres, mots-clés et règles de navigation sont stockés uniquement sur votre ordinateur, sans serveur externe.
+MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée ni traitement de vos données ailleurs.</p>
                         </CardContent>
                     </Card>
 
@@ -464,22 +457,22 @@ export default function Features() {
                                             <motion.div
                                                 className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold px-2 py-0.5 rounded whitespace-nowrap"
                                                 animate={{
-                                                    color: ['#14b8a6', '#14b8a6', '#14b8a6', '#ef4444', '#ef4444', '#ef4444'],
+                                                    color: ['#22c55e', '#22c55e', '#ef4444', '#ef4444'],
                                                 }}
                                                 transition={{
                                                     duration: 8,
                                                     repeat: Infinity,
-                                                    times: [0, 0.32, 0.33, 0.65, 0.66, 1]
+                                                    times: [0, 0.5, 0.5, 1]
                                                 }}
                                             >
                                                 <motion.span
                                                     animate={{
-                                                        opacity: [1, 1, 1, 0, 0, 0, 1],
+                                                        opacity: [1, 1, 0, 0],
                                                     }}
                                                     transition={{
                                                         duration: 8,
                                                         repeat: Infinity,
-                                                        times: [0, 0.32, 0.33, 0.33, 0.65, 0.66, 1]
+                                                        times: [0, 0.5, 0.5, 1]
                                                     }}
                                                 >
                                                     12:00
@@ -487,15 +480,15 @@ export default function Features() {
                                                 <motion.span
                                                     className="absolute left-2"
                                                     animate={{
-                                                        opacity: [0, 0, 0, 1, 1, 1, 0],
+                                                        opacity: [0, 0, 1, 1],
                                                     }}
                                                     transition={{
                                                         duration: 8,
                                                         repeat: Infinity,
-                                                        times: [0, 0.32, 0.33, 0.33, 0.65, 0.66, 1]
+                                                        times: [0, 0.5, 0.5, 1]
                                                     }}
                                                 >
-                                                    15:00
+                                                    16:00
                                                 </motion.span>
                                             </motion.div>
                                         </div>
@@ -511,24 +504,18 @@ export default function Features() {
                                                     backgroundColor: [
                                                         'rgba(239, 68, 68, 0.2)',
                                                         'rgba(239, 68, 68, 0.2)',
-                                                        'rgba(239, 68, 68, 0.2)',
-                                                        'rgba(239, 68, 68, 1)',
                                                         'rgba(239, 68, 68, 1)',
                                                         'rgba(239, 68, 68, 1)'
                                                     ],
                                                     borderColor: [
                                                         'rgba(239, 68, 68, 0.3)',
                                                         'rgba(239, 68, 68, 0.3)',
-                                                        'rgba(239, 68, 68, 0.3)',
-                                                        'rgba(239, 68, 68, 1)',
                                                         'rgba(239, 68, 68, 1)',
                                                         'rgba(239, 68, 68, 1)'
                                                     ],
                                                     boxShadow: [
                                                         '0 0 0px rgba(239, 68, 68, 0)',
                                                         '0 0 0px rgba(239, 68, 68, 0)',
-                                                        '0 0 0px rgba(239, 68, 68, 0)',
-                                                        '0 0 15px rgba(239, 68, 68, 0.8)',
                                                         '0 0 15px rgba(239, 68, 68, 0.8)',
                                                         '0 0 15px rgba(239, 68, 68, 0.8)'
                                                     ]
@@ -536,7 +523,8 @@ export default function Features() {
                                                 transition={{
                                                     duration: 8,
                                                     repeat: Infinity,
-                                                    times: [0, 0.32, 0.33, 0.33, 0.65, 1]
+                                                    times: [0, 0.300, 0.5, 1],
+                                                    ease: "linear"
                                                 }}
                                             />
 
@@ -547,24 +535,18 @@ export default function Features() {
                                                     backgroundColor: [
                                                         'rgba(34, 197, 94, 1)',
                                                         'rgba(34, 197, 94, 1)',
-                                                        'rgba(34, 197, 94, 1)',
-                                                        'rgba(34, 197, 94, 0.2)',
                                                         'rgba(34, 197, 94, 0.2)',
                                                         'rgba(34, 197, 94, 0.2)'
                                                     ],
                                                     borderColor: [
                                                         'rgba(34, 197, 94, 1)',
                                                         'rgba(34, 197, 94, 1)',
-                                                        'rgba(34, 197, 94, 1)',
-                                                        'rgba(34, 197, 94, 0.3)',
                                                         'rgba(34, 197, 94, 0.3)',
                                                         'rgba(34, 197, 94, 0.3)'
                                                     ],
                                                     boxShadow: [
                                                         '0 0 15px rgba(34, 197, 94, 0.8)',
                                                         '0 0 15px rgba(34, 197, 94, 0.8)',
-                                                        '0 0 15px rgba(34, 197, 94, 0.8)',
-                                                        '0 0 0px rgba(34, 197, 94, 0)',
                                                         '0 0 0px rgba(34, 197, 94, 0)',
                                                         '0 0 0px rgba(34, 197, 94, 0)'
                                                     ]
@@ -572,7 +554,8 @@ export default function Features() {
                                                 transition={{
                                                     duration: 8,
                                                     repeat: Infinity,
-                                                    times: [0, 0.32, 0.33, 0.33, 0.65, 1]
+                                                    times: [0, 0.3, 0.5, 1],
+                                                    ease: "linear"
                                                 }}
                                             />
                                         </div>
@@ -580,36 +563,29 @@ export default function Features() {
                                         {/* Status label */}
                                         <motion.div
                                             className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold px-2 py-0.5 rounded whitespace-nowrap"
-                                            animate={{
-                                                color: ['#22c55e', '#22c55e', '#22c55e', '#ef4444', '#ef4444', '#ef4444'],
-                                            }}
-                                            transition={{
-                                                duration: 8,
-                                                repeat: Infinity,
-                                                times: [0, 0.32, 0.33, 0.65, 0.66, 1]
-                                            }}
                                         >
                                             <motion.span
+                                                className="text-green-500"
                                                 animate={{
-                                                    opacity: [1, 1, 1, 0, 0, 0, 1],
+                                                    opacity: [1, 1, 0, 0],
                                                 }}
                                                 transition={{
                                                     duration: 8,
                                                     repeat: Infinity,
-                                                    times: [0, 0.32, 0.33, 0.33, 0.65, 0.66, 1]
+                                                    times: [0, 0.3, 0.3, 1]
                                                 }}
                                             >
                                                 ✓ AUTORISÉ
                                             </motion.span>
                                             <motion.span
-                                                className="absolute left-2"
+                                                className="absolute left-2 text-red-500"
                                                 animate={{
-                                                    opacity: [0, 0, 0, 1, 1, 1, 0],
+                                                    opacity: [0, 0, 1, 1],
                                                 }}
                                                 transition={{
                                                     duration: 8,
                                                     repeat: Infinity,
-                                                    times: [0, 0.32, 0.33, 0.33, 0.65, 0.66, 1]
+                                                    times: [0, 0.3, 0.3, 1]
                                                 }}
                                             >
                                                 ✕ BLOQUÉ
@@ -622,7 +598,7 @@ export default function Features() {
                                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-4 text-[9px]">
                                     <div className="flex items-center gap-1">
                                         <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
-                                        <span className="text-gray-600 dark:text-gray-400 whitespace-nowrap">12h-15h</span>
+                                        <span className="text-gray-600 dark:text-gray-400 whitespace-nowrap">12h-16h</span>
                                     </div>
                                     
                                 </div>
@@ -916,7 +892,7 @@ export default function Features() {
 
                                 {/* "Illimité" badge */}
                                 <motion.div
-                                    className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-violet-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
+                                    className="absolute bottom-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-violet-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{
                                         opacity: [0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
