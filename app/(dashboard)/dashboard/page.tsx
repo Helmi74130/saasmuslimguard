@@ -18,7 +18,9 @@ import { Suspense } from 'react';
 import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { Loader2, PlusCircle } from 'lucide-react';
+import { Loader2, PlusCircle, Chrome, ExternalLink, Copy, X } from 'lucide-react';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 type ActionState = {
   error?: string;
@@ -26,6 +28,80 @@ type ActionState = {
 };
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+const CHROME_EXTENSION_URL =
+  'https://chromewebstore.google.com/detail/muslimguard-contr%C3%B4le-pare/khilbklefblhhcombalbofjjliplfdnp';
+
+function ChromeExtensionBanner() {
+  const [dismissed, setDismissed] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const isDismissed = localStorage.getItem('chrome_banner_dismissed');
+    if (isDismissed === 'true') {
+      setDismissed(true);
+    }
+  }, []);
+
+  const handleDismiss = () => {
+    localStorage.setItem('chrome_banner_dismissed', 'true');
+    setDismissed(true);
+  };
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(CHROME_EXTENSION_URL);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  if (dismissed) return null;
+
+  return (
+    <Card className="mb-8 border-blue-500 bg-blue-50 dark:bg-blue-950">
+      <CardHeader>
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-blue-800 dark:text-blue-100">
+            Extension Chrome MuslimGuard
+          </CardTitle>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleDismiss}
+            aria-label="Fermer"
+          >
+            <X className="h-4 w-4" />
+          </Button>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <p className="mb-4 text-blue-700 dark:text-blue-200">
+          Installez l'extension Chrome pour activer la protection de votre
+          famille en ligne.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Button
+            asChild
+            className="bg-[#003463] hover:bg-[#003463]/90 text-white"
+          >
+            <a
+              href={CHROME_EXTENSION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Chrome className="mr-2 h-4 w-4" />
+              Installer l'extension
+              <ExternalLink className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+          <Button variant="outline" onClick={handleCopyLink}>
+            <Copy className="mr-2 h-4 w-4" />
+            {copied ? 'Copié !' : 'Copier le lien'}
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
 
 function SubscriptionSkeleton() {
   return (
@@ -40,6 +116,11 @@ function SubscriptionSkeleton() {
 function ManageSubscription() {
   const { data: teamData } = useSWR<TeamDataWithMembers>('/api/team', fetcher);
 
+  const hasActiveSubscription =
+    teamData?.stripeSubscriptionId &&
+    (teamData.subscriptionStatus === 'active' ||
+      teamData.subscriptionStatus === 'trialing');
+
   return (
     <Card className="mb-8">
       <CardHeader>
@@ -50,21 +131,31 @@ function ManageSubscription() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
             <div className="mb-4 sm:mb-0">
               <p className="font-medium">
-                Plan actuel : {teamData?.planName || 'Free'}
+                Plan actuel : {teamData?.planName || 'Gratuit'}
               </p>
               <p className="text-sm text-muted-foreground">
                 {teamData?.subscriptionStatus === 'active'
                   ? 'Facturé mensuellement'
                   : teamData?.subscriptionStatus === 'trialing'
-                  ? 'Période d\'essai'
+                  ? "Période d'essai gratuite"
                   : 'Aucun abonnement actif'}
               </p>
             </div>
-            <form action={customerPortalAction}>
-              <Button type="submit" variant="outline">
-                Gérer l'abonnement
+
+            {hasActiveSubscription ? (
+              <form action={customerPortalAction}>
+                <Button type="submit" variant="outline">
+                  Modifier mon abonnement
+                </Button>
+              </form>
+            ) : (
+              <Button
+                asChild
+                className="bg-[#003463] hover:bg-[#003463]/90 text-white"
+              >
+                <Link href="/pricing">Souscrire à Premium</Link>
               </Button>
-            </form>
+            )}
           </div>
         </div>
       </CardContent>
@@ -272,7 +363,10 @@ function InviteTeamMember() {
 export default function SettingsPage() {
   return (
     <section className="flex-1 p-4 lg:p-8">
-      <h1 className="text-lg lg:text-2xl font-medium mb-6">Paramètres de la famille</h1>
+      <h1 className="text-lg lg:text-2xl font-medium mb-6">
+        Paramètres de la famille
+      </h1>
+      <ChromeExtensionBanner />
       <Suspense fallback={<SubscriptionSkeleton />}>
         <ManageSubscription />
       </Suspense>
