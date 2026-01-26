@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { use, useState, Suspense } from 'react';
 import { Button } from '@/components/ui/button';
-import { Home, LogOut, Menu, Sparkles, Mail, DollarSign, HomeIcon } from 'lucide-react';
+import { Home, LogOut, Menu, Sparkles, Mail, DollarSign, HomeIcon, BookOpen, FileText } from 'lucide-react';
 import Image from 'next/image';
 import {
   DropdownMenu,
@@ -30,6 +30,8 @@ function NavigationLinks({ onClick, isMobile = false }: { onClick?: () => void; 
   const navItems = [
     { href: '/', label: 'Accueil', icon: HomeIcon },
     { href: '/features', label: 'Fonctionnalités', icon: Sparkles },
+    { href: '/docs', label: 'Documentation', icon: BookOpen },
+    { href: '/blog', label: 'Blog', icon: FileText },
     { href: '/contact', label: 'Contact', icon: Mail },
     { href: '/pricing', label: 'Prix', icon: DollarSign },
   ];

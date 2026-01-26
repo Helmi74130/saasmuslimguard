@@ -1,0 +1,158 @@
+{
+  "sections": [
+    {
+      "title": "Introduction",
+      "slug": "introduction",
+      "icon": "BookOpen",
+      "items": [
+        {
+          "title": "Qu'est-ce que MuslimGuard ?",
+          "slug": "introduction/index"
+        },
+        {
+          "title": "Démarrage rapide",
+          "slug": "introduction/quick-start"
+        },
+        {
+          "title": "Prérequis système",
+          "slug": "introduction/system-requirements"
+        }
+      ]
+    },
+    {
+      "title": "Installation",
+      "slug": "installation",
+      "icon": "Download",
+      "items": [
+        {
+          "title": "Vue d'ensemble",
+          "slug": "installation/index"
+        },
+        {
+          "title": "Chrome Web Store",
+          "slug": "installation/chrome-store"
+        },
+        {
+          "title": "Installation manuelle",
+          "slug": "installation/manual-installation"
+        },
+        {
+          "title": "Dépannage",
+          "slug": "installation/troubleshooting"
+        }
+      ]
+    },
+    {
+      "title": "Configuration",
+      "slug": "configuration",
+      "icon": "Settings",
+      "items": [
+        {
+          "title": "Vue d'ensemble",
+          "slug": "configuration/index"
+        },
+        {
+          "title": "Lier votre compte",
+          "slug": "configuration/account-linking"
+        },
+        {
+          "title": "Règles de blocage",
+          "slug": "configuration/blocking-rules"
+        },
+        {
+          "title": "Détection de mots-clés",
+          "slug": "configuration/keywords"
+        },
+        {
+          "title": "Heures de prière",
+          "slug": "configuration/prayer-times"
+        },
+        {
+          "title": "Contrôle horaire",
+          "slug": "configuration/time-restrictions"
+        }
+      ]
+    },
+    {
+      "title": "Fonctionnalités",
+      "slug": "features",
+      "icon": "Sparkles",
+      "items": [
+        {
+          "title": "Vue d'ensemble",
+          "slug": "features/index"
+        },
+        {
+          "title": "Blocage personnalisé",
+          "slug": "features/custom-blocking"
+        },
+        {
+          "title": "Détection temps réel",
+          "slug": "features/keyword-detection"
+        },
+        {
+          "title": "Mode prière",
+          "slug": "features/prayer-mode"
+        },
+        {
+          "title": "Contrôle horaire",
+          "slug": "features/time-controls"
+        },
+        {
+          "title": "Confidentialité",
+          "slug": "features/privacy"
+        },
+        {
+          "title": "Multi-appareils",
+          "slug": "features/multi-device"
+        }
+      ]
+    },
+    {
+      "title": "API & Développeurs",
+      "slug": "api",
+      "icon": "Code",
+      "items": [
+        {
+          "title": "Vue d'ensemble",
+          "slug": "api/index"
+        },
+        {
+          "title": "Authentification",
+          "slug": "api/authentication"
+        },
+        {
+          "title": "Points de terminaison",
+          "slug": "api/endpoints"
+        },
+        {
+          "title": "Exemples de code",
+          "slug": "api/examples"
+        }
+      ]
+    },
+    {
+      "title": "Dépannage",
+      "slug": "troubleshooting",
+      "icon": "AlertCircle",
+      "items": [
+        {
+          "title": "Problèmes courants",
+          "slug": "troubleshooting/index"
+        },
+        {
+          "title": "Erreurs de connexion",
+          "slug": "troubleshooting/connection-errors"
+        },
+        {
+          "title": "Problèmes de blocage",
+          "slug": "troubleshooting/blocking-not-working"
+        },
+        {
+          "title": "Performance",
+          "slug": "troubleshooting/performance"
+        }
+      ]
+    }
+  ]
+}

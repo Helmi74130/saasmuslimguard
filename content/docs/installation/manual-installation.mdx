@@ -1,0 +1,224 @@
+---
+title: "Installation manuelle"
+description: "Installer MuslimGuard manuellement pour le développement ou les tests"
+section: "installation"
+order: 3
+lastUpdated: "2025-01-24"
+keywords: ["installation manuelle", "développement", "mode développeur", "chrome extension"]
+---
+
+# Installation manuelle
+
+Ce guide s'adresse aux développeurs ou utilisateurs souhaitant installer MuslimGuard manuellement, typiquement pour tester une version de développement.
+
+<Callout type="warning">
+L'installation manuelle est destinée aux développeurs. Pour une utilisation normale, nous recommandons l'[installation via le Chrome Web Store](/docs/installation/chrome-store).
+</Callout>
+
+## Prérequis
+
+Avant de commencer, assurez-vous d'avoir :
+
+- **Git** installé sur votre système
+- **Node.js** version 18 ou supérieure
+- **pnpm** comme gestionnaire de paquets
+- **Google Chrome** version 100 ou supérieure
+
+## Étapes d'installation
+
+### 1. Cloner le dépôt
+
+Clonez le code source de l'extension MuslimGuard :
+
+```bash
+git clone https://github.com/muslimguard/extension.git
+cd extension
+```
+
+### 2. Installer les dépendances
+
+Installez les dépendances du projet avec pnpm :
+
+```bash
+pnpm install
+```
+
+<Callout type="info">
+MuslimGuard utilise pnpm comme gestionnaire de paquets. Si vous ne l'avez pas installé, exécutez `npm install -g pnpm`.
+</Callout>
+
+### 3. Configurer les variables d'environnement
+
+Créez un fichier `.env.local` à la racine du projet :
+
+```bash
+# API Endpoint
+VITE_API_URL=https://api.muslimguard.com
+
+# Extension ID (généré automatiquement en mode dev)
+VITE_EXTENSION_ID=development
+```
+
+### 4. Compiler l'extension
+
+Construisez l'extension pour Chrome :
+
+```bash
+# Build de développement
+pnpm build:dev
+
+# Build de production
+pnpm build
+```
+
+Le dossier `dist/` contiendra les fichiers compilés de l'extension.
+
+### 5. Charger l'extension dans Chrome
+
+1. Ouvrez Chrome et accédez à `chrome://extensions`
+2. Activez le **"Mode développeur"** en haut à droite
+3. Cliquez sur **"Charger l'extension non empaquetée"**
+4. Sélectionnez le dossier `dist/` du projet
+5. L'extension apparaîtra dans votre liste d'extensions
+
+<Callout type="success">
+L'extension est maintenant installée ! Vous devriez voir l'icône MuslimGuard dans votre barre d'outils Chrome.
+</Callout>
+
+## Développement en mode live
+
+Pour développer avec rechargement automatique :
+
+```bash
+pnpm dev
+```
+
+Cette commande :
+- Lance le serveur de développement
+- Surveille les modifications de fichiers
+- Recompile automatiquement l'extension
+
+<Callout type="info">
+Après chaque modification, vous devrez cliquer sur le bouton de rechargement dans `chrome://extensions` pour voir vos changements.
+</Callout>
+
+## Structure du projet
+
+```
+extension/
+├── src/
+│   ├── background/      # Service worker
+│   ├── content/         # Scripts de contenu
+│   ├── popup/           # Interface popup
+│   ├── options/         # Page d'options
+│   └── utils/           # Utilitaires partagés
+├── public/
+│   ├── manifest.json    # Manifest de l'extension
+│   └── icons/           # Icônes de l'extension
+├── dist/                # Build compilé
+└── package.json
+```
+
+## Scripts disponibles
+
+| Commande | Description |
+|----------|-------------|
+| `pnpm dev` | Mode développement avec watch |
+| `pnpm build` | Build de production |
+| `pnpm build:dev` | Build de développement |
+| `pnpm lint` | Vérifier le code avec ESLint |
+| `pnpm type-check` | Vérifier les types TypeScript |
+
+## Tests
+
+Exécuter la suite de tests :
+
+```bash
+# Tests unitaires
+pnpm test
+
+# Tests avec couverture
+pnpm test:coverage
+
+# Tests e2e
+pnpm test:e2e
+```
+
+## Débogage
+
+### Console de développement
+
+Pour déboguer le service worker (background script) :
+
+1. Allez dans `chrome://extensions`
+2. Trouvez MuslimGuard
+3. Cliquez sur **"Inspecter les vues : service worker"**
+
+### Déboguer les scripts de contenu
+
+1. Ouvrez n'importe quelle page web
+2. Ouvrez DevTools (F12)
+3. Les scripts de contenu apparaissent dans l'onglet "Sources"
+
+### Logs détaillés
+
+Activez les logs détaillés dans le fichier de configuration :
+
+```typescript
+// src/config/debug.ts
+export const DEBUG = {
+  enabled: true,
+  logLevel: 'verbose'
+};
+```
+
+## Problèmes courants
+
+### L'extension ne se charge pas
+
+<Callout type="error">
+**Erreur** : "Failed to load extension"
+</Callout>
+
+**Solution** :
+- Vérifiez que le fichier `manifest.json` est valide
+- Assurez-vous que tous les fichiers référencés existent
+- Consultez les détails de l'erreur dans `chrome://extensions`
+
+### Erreurs de compilation
+
+<Callout type="error">
+**Erreur** : Module build failed
+</Callout>
+
+**Solution** :
+```bash
+# Nettoyer et reconstruire
+rm -rf node_modules dist
+pnpm install
+pnpm build
+```
+
+### Modifications non prises en compte
+
+Après modification du code :
+1. Sauvegardez tous vos fichiers
+2. Attendez la fin de la compilation (vérifiez le terminal)
+3. Allez dans `chrome://extensions`
+4. Cliquez sur l'icône de rechargement ↻ de l'extension
+
+## Contribuer
+
+Pour contribuer au développement de MuslimGuard :
+
+1. Forkez le dépôt
+2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/ma-fonctionnalite`)
+3. Commitez vos modifications (`git commit -m 'Ajout de ma fonctionnalité'`)
+4. Poussez vers votre branche (`git push origin feature/ma-fonctionnalite`)
+5. Ouvrez une Pull Request
+
+## Prochaines étapes
+
+- [Configuration de l'extension](/docs/configuration/account-linking)
+- [Architecture de l'extension](/docs/api/index)
+- [Guide de contribution](https://github.com/muslimguard/extension/blob/main/CONTRIBUTING.md)

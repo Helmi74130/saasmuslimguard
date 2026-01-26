@@ -1,0 +1,187 @@
+---
+title: "Prérequis système"
+description: "Configuration minimale requise pour utiliser MuslimGuard"
+section: "introduction"
+order: 3
+lastUpdated: "2025-01-24"
+keywords: ["configuration", "prérequis", "compatibilité", "système"]
+---
+
+# Prérequis système
+
+Vérifiez que votre système répond aux exigences minimales pour utiliser MuslimGuard.
+
+## Navigateurs compatibles
+
+### Google Chrome
+
+<Callout type="success">
+**Navigateur recommandé** - Meilleure performance et compatibilité
+</Callout>
+
+- **Version minimale** : Chrome 100+
+- **Version recommandée** : Chrome 120+ (dernière version)
+- **Systèmes** : Windows, macOS, Linux, ChromeOS
+
+### Microsoft Edge
+
+- **Version minimale** : Edge 100+ (Chromium)
+- **Systèmes** : Windows, macOS, Linux
+- **Note** : Compatible car basé sur Chromium
+
+### Autres navigateurs Chromium
+
+- Brave Browser 1.50+
+- Opera 85+
+- Vivaldi 5.0+
+
+<Callout type="warning">
+**Firefox et Safari ne sont pas compatibles** pour le moment. Nous travaillons sur le support de ces navigateurs.
+</Callout>
+
+## Configuration matérielle
+
+### Configuration minimale
+
+| Composant | Minimum requis |
+|-----------|---------------|
+| **Processeur** | Intel Core i3 ou équivalent |
+| **RAM** | 2 Go |
+| **Espace disque** | 100 Mo disponibles |
+| **Résolution** | 1024x768 |
+
+### Configuration recommandée
+
+| Composant | Recommandé |
+|-----------|-----------|
+| **Processeur** | Intel Core i5 ou équivalent |
+| **RAM** | 4 Go ou plus |
+| **Espace disque** | 500 Mo disponibles |
+| **Résolution** | 1920x1080 |
+
+## Systèmes d'exploitation
+
+### Windows
+
+- ✅ Windows 11 (toutes versions)
+- ✅ Windows 10 version 1903 ou supérieure
+- ⚠️ Windows 8.1 (support limité)
+- ❌ Windows 7 et versions antérieures (non supporté)
+
+### macOS
+
+- ✅ macOS 14 Sonoma
+- ✅ macOS 13 Ventura
+- ✅ macOS 12 Monterey
+- ✅ macOS 11 Big Sur
+- ⚠️ macOS 10.15 Catalina (support limité)
+
+### Linux
+
+- ✅ Ubuntu 20.04 LTS et supérieur
+- ✅ Debian 11 et supérieur
+- ✅ Fedora 36 et supérieur
+- ✅ Arch Linux (dernière version)
+- ✅ Autres distributions avec Chrome/Chromium
+
+### ChromeOS
+
+- ✅ ChromeOS 100 et supérieur
+- ✅ Tous les Chromebooks récents
+
+## Connexion internet
+
+### Vitesse minimale
+
+- **Download** : 1 Mbps
+- **Upload** : 512 Kbps
+- **Latence** : < 200ms
+
+### Recommandations
+
+- **Download** : 5 Mbps ou plus
+- **Upload** : 1 Mbps ou plus
+- **Latence** : < 100ms
+
+<Callout type="info">
+L'extension fonctionne en mode hors ligne pour le blocage local, mais nécessite une connexion pour :
+- Synchroniser les paramètres
+- Mettre à jour les listes de blocage
+- Récupérer les heures de prière
+</Callout>
+
+## Permissions requises
+
+L'extension MuslimGuard nécessite les permissions Chrome suivantes :
+
+### Permissions obligatoires
+
+- **`tabs`** - Pour surveiller les onglets ouverts
+- **`webNavigation`** - Pour intercepter les requêtes web
+- **`storage`** - Pour sauvegarder vos paramètres localement
+- **`alarms`** - Pour les rappels de prière
+
+### Permissions optionnelles
+
+- **`notifications`** - Pour les alertes de prière (recommandé)
+- **`contextMenus`** - Pour le menu contextuel rapide
+
+<Callout type="success">
+**Confidentialité garantie** : Toutes les données restent locales. Aucune permission de lecture de contenu sensible n'est demandée.
+</Callout>
+
+## Compatibilité des fonctionnalités
+
+| Fonctionnalité | Chrome | Edge | Brave | Opera |
+|----------------|--------|------|-------|-------|
+| Blocage de sites | ✅ | ✅ | ✅ | ✅ |
+| Détection mots-clés | ✅ | ✅ | ✅ | ✅ |
+| Mode prière | ✅ | ✅ | ✅ | ✅ |
+| Contrôle horaire | ✅ | ✅ | ✅ | ✅ |
+| Synchronisation | ✅ | ✅ | ✅ | ✅ |
+| Notifications | ✅ | ✅ | ⚠️ | ✅ |
+
+<Callout type="warning">
+**Note sur Brave** : Les notifications peuvent être limitées selon la configuration de confidentialité de Brave.
+</Callout>
+
+## Limitations connues
+
+### Limitations techniques
+
+- **Mode navigation privée** : Le blocage nécessite l'activation manuelle dans les paramètres de l'extension
+- **Profils multiples** : Chaque profil Chrome nécessite une installation séparée
+- **Extensions VPN** : Peuvent interférer avec la détection de contenu
+
+### Limitations réseau
+
+- **Proxy d'entreprise** : Peut bloquer les mises à jour de l'extension
+- **Pare-feu strict** : Peut empêcher la synchronisation
+- **VPN actif** : Peut ralentir la détection en temps réel
+
+## Vérification de compatibilité
+
+Pour vérifier si votre système est compatible :
+
+```javascript
+// Ouvrez la console Chrome (F12) et exécutez :
+console.log('Version Chrome:', navigator.userAgent.match(/Chrome\/(\d+)/)[1]);
+console.log('Système:', navigator.platform);
+console.log('RAM:', navigator.deviceMemory ? navigator.deviceMemory + ' Go' : 'Non disponible');
+```
+
+## Prochaines étapes
+
+Si votre système répond aux exigences :
+
+- [Installer MuslimGuard](/docs/introduction/quick-start)
+- [Configuration initiale](/docs/configuration)
+- [Découvrir les fonctionnalités](/docs/features)
+
+## Problèmes de compatibilité ?
+
+Si vous rencontrez des problèmes :
+
+- [Problèmes d'installation](/docs/installation/troubleshooting)
+- [Support technique](/contact)
+- [Questions fréquentes](/docs/troubleshooting)

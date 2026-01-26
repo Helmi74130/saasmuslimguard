@@ -1,0 +1,131 @@
+[
+  {
+    "id": "doc-0",
+    "title": "Exemples d'utilisation de l'API",
+    "description": "Exemples pratiques d'intégration avec l'API MuslimGuard",
+    "slug": "/docs/api/examples",
+    "type": "doc",
+    "section": "api",
+    "tags": [
+      "api",
+      "exemples",
+      "code",
+      "intégration",
+      "tutoriels"
+    ]
+  },
+  {
+    "id": "doc-1",
+    "title": "Installation depuis le Chrome Web Store",
+    "description": "Installez MuslimGuard en quelques clics depuis le Chrome Web Store officiel",
+    "slug": "/docs/installation/chrome-store",
+    "type": "doc",
+    "section": "installation",
+    "tags": [
+      "chrome web store",
+      "installation",
+      "extension chrome",
+      "téléchargement"
+    ]
+  },
+  {
+    "id": "doc-2",
+    "title": "Installation",
+    "description": "Guide complet d'installation de l'extension MuslimGuard",
+    "slug": "/docs/installation/index",
+    "type": "doc",
+    "section": "installation",
+    "tags": [
+      "installation",
+      "chrome",
+      "extension",
+      "setup"
+    ]
+  },
+  {
+    "id": "doc-3",
+    "title": "Installation manuelle",
+    "description": "Installer MuslimGuard manuellement pour le développement ou les tests",
+    "slug": "/docs/installation/manual-installation",
+    "type": "doc",
+    "section": "installation",
+    "tags": [
+      "installation manuelle",
+      "développement",
+      "mode développeur",
+      "chrome extension"
+    ]
+  },
+  {
+    "id": "doc-4",
+    "title": "Dépannage de l'installation",
+    "description": "Solutions aux problèmes courants lors de l'installation de MuslimGuard",
+    "slug": "/docs/installation/troubleshooting",
+    "type": "doc",
+    "section": "installation",
+    "tags": [
+      "dépannage",
+      "erreurs",
+      "problèmes",
+      "installation",
+      "troubleshooting"
+    ]
+  },
+  {
+    "id": "doc-5",
+    "title": "Qu'est-ce que MuslimGuard ?",
+    "description": "Découvrez MuslimGuard, le premier contrôle parental conçu pour les familles musulmanes",
+    "slug": "/docs/introduction/index",
+    "type": "doc",
+    "section": "introduction",
+    "tags": [
+      "muslimguard",
+      "contrôle parental",
+      "islam",
+      "protection en ligne"
+    ]
+  },
+  {
+    "id": "doc-6",
+    "title": "Guide de démarrage rapide",
+    "description": "Installez et configurez MuslimGuard en moins de 5 minutes",
+    "slug": "/docs/introduction/quick-start",
+    "type": "doc",
+    "section": "introduction",
+    "tags": [
+      "installation",
+      "démarrage rapide",
+      "configuration",
+      "tutoriel"
+    ]
+  },
+  {
+    "id": "doc-7",
+    "title": "Prérequis système",
+    "description": "Configuration minimale requise pour utiliser MuslimGuard",
+    "slug": "/docs/introduction/system-requirements",
+    "type": "doc",
+    "section": "introduction",
+    "tags": [
+      "configuration",
+      "prérequis",
+      "compatibilité",
+      "système"
+    ]
+  },
+  {
+    "id": "blog-0",
+    "title": "Annonce de MuslimGuard : Le premier contrôle parental islamique",
+    "description": "Aujourd'hui, nous sommes fiers de lancer MuslimGuard, une extension Chrome conçue spécifiquement pour les familles musulmanes qui souhaitent protéger leurs enfants en ligne.",
+    "slug": "/blog/2025-01-24-announcing-muslimguard",
+    "type": "blog",
+    "category": "announcements",
+    "tags": [
+      "lancement",
+      "features",
+      "contrôle parental",
+      "islam",
+      "protection en ligne"
+    ]
+  }
+]

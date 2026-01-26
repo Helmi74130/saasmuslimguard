@@ -1,0 +1,490 @@
+---
+title: "Exemples d'utilisation de l'API"
+description: "Exemples pratiques d'intégration avec l'API MuslimGuard"
+section: "api"
+order: 3
+lastUpdated: "2025-01-24"
+keywords: ["api", "exemples", "code", "intégration", "tutoriels"]
+---
+
+# Exemples d'utilisation de l'API
+
+Cette page fournit des exemples pratiques d'intégration avec l'API MuslimGuard pour les développeurs d'extensions ou d'applications tierces.
+
+## Authentification
+
+### Enregistrer une extension
+
+Première étape : enregistrer votre extension auprès de l'API MuslimGuard.
+
+```typescript
+// background/service-worker.ts
+async function registerExtension() {
+  try {
+    const response = await fetch('https://api.muslimguard.com/api/extension/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        deviceName: `Chrome - ${navigator.platform}`,
+        extensionVersion: chrome.runtime.getManifest().version,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to register extension');
+    }
+
+    const data = await response.json();
+
+    // Stocker le token d'authentification
+    await chrome.storage.local.set({
+      authToken: data.token,
+      extensionId: data.extensionId,
+    });
+
+    console.log('Extension registered successfully');
+  } catch (error) {
+    console.error('Registration error:', error);
+  }
+}
+```
+
+### Récupérer le statut d'abonnement
+
+Vérifier si l'utilisateur a un abonnement actif.
+
+```typescript
+async function getSubscriptionStatus() {
+  const { authToken } = await chrome.storage.local.get('authToken');
+
+  if (!authToken) {
+    throw new Error('Not authenticated');
+  }
+
+  const response = await fetch('https://api.muslimguard.com/api/extension/status', {
+    headers: {
+      'Authorization': `Bearer ${authToken}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch subscription status');
+  }
+
+  const data = await response.json();
+
+  return {
+    isActive: data.isActive,
+    planName: data.planName,
+    expiresAt: data.expiresAt,
+  };
+}
+
+// Utilisation
+const status = await getSubscriptionStatus();
+console.log(`Subscription active: ${status.isActive}`);
+```
+
+## Synchronisation des règles
+
+### Récupérer les règles de blocage
+
+Synchroniser les règles de blocage depuis le serveur.
+
+```typescript
+interface BlockingRule {
+  id: string;
+  domain: string;
+  type: 'full' | 'partial';
+  enabled: boolean;
+}
+
+async function fetchBlockingRules(): Promise<BlockingRule[]> {
+  const { authToken } = await chrome.storage.local.get('authToken');
+
+  const response = await fetch('https://api.muslimguard.com/api/blocking-rules', {
+    headers: {
+      'Authorization': `Bearer ${authToken}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch blocking rules');
+  }
+
+  const rules = await response.json();
+
+  // Stocker localement pour utilisation hors ligne
+  await chrome.storage.local.set({ blockingRules: rules });
+
+  return rules;
+}
+```
+
+### Ajouter une règle de blocage
+
+Créer une nouvelle règle de blocage.
+
+```typescript
+async function addBlockingRule(domain: string, type: 'full' | 'partial' = 'full') {
+  const { authToken } = await chrome.storage.local.get('authToken');
+
+  const response = await fetch('https://api.muslimguard.com/api/blocking-rules', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${authToken}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      domain,
+      type,
+      enabled: true,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to add blocking rule');
+  }
+
+  const newRule = await response.json();
+
+  // Rafraîchir les règles locales
+  await fetchBlockingRules();
+
+  return newRule;
+}
+
+// Utilisation
+await addBlockingRule('example.com', 'full');
+```
+
+### Supprimer une règle de blocage
+
+```typescript
+async function deleteBlockingRule(ruleId: string) {
+  const { authToken } = await chrome.storage.local.get('authToken');
+
+  const response = await fetch(`https://api.muslimguard.com/api/blocking-rules/${ruleId}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${authToken}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to delete blocking rule');
+  }
+
+  // Rafraîchir les règles locales
+  await fetchBlockingRules();
+}
+```
+
+## Détection de mots-clés
+
+### Récupérer les mots-clés
+
+```typescript
+interface Keyword {
+  id: string;
+  keyword: string;
+  language: string;
+  severity: 'low' | 'medium' | 'high';
+  enabled: boolean;
+}
+
+async function fetchKeywords(): Promise<Keyword[]> {
+  const { authToken } = await chrome.storage.local.get('authToken');
+
+  const response = await fetch('https://api.muslimguard.com/api/keywords', {
+    headers: {
+      'Authorization': `Bearer ${authToken}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch keywords');
+  }
+
+  const keywords = await response.json();
+
+  // Stocker localement
+  await chrome.storage.local.set({ keywords });
+
+  return keywords;
+}
+```
+
+### Scanner une page web
+
+```typescript
+// content/scanner.ts
+async function scanPageContent() {
+  const { keywords } = await chrome.storage.local.get('keywords');
+
+  if (!keywords || keywords.length === 0) {
+    return { detected: false, matches: [] };
+  }
+
+  const pageText = document.body.innerText.toLowerCase();
+  const matches: Keyword[] = [];
+
+  for (const keyword of keywords) {
+    if (!keyword.enabled) continue;
+
+    const regex = new RegExp(`\\b${keyword.keyword.toLowerCase()}\\b`, 'gi');
+    if (regex.test(pageText)) {
+      matches.push(keyword);
+    }
+  }
+
+  if (matches.length > 0) {
+    // Notifier le background script
+    chrome.runtime.sendMessage({
+      type: 'KEYWORD_DETECTED',
+      url: window.location.href,
+      matches: matches.map(m => m.keyword),
+    });
+  }
+
+  return { detected: matches.length > 0, matches };
+}
+```
+
+## Heures de prière
+
+### Récupérer les heures de prière
+
+```typescript
+interface PrayerTimes {
+  fajr: string;
+  dhuhr: string;
+  asr: string;
+  maghrib: string;
+  isha: string;
+  date: string;
+}
+
+async function fetchPrayerTimes(
+  latitude: number,
+  longitude: number,
+  date?: string
+): Promise<PrayerTimes> {
+  const { authToken } = await chrome.storage.local.get('authToken');
+
+  const params = new URLSearchParams({
+    lat: latitude.toString(),
+    lng: longitude.toString(),
+    date: date || new Date().toISOString().split('T')[0],
+  });
+
+  const response = await fetch(
+    `https://api.muslimguard.com/api/prayer-times?${params}`,
+    {
+      headers: {
+        'Authorization': `Bearer ${authToken}`,
+      },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch prayer times');
+  }
+
+  return await response.json();
+}
+
+// Utilisation avec géolocalisation
+navigator.geolocation.getCurrentPosition(async (position) => {
+  const prayerTimes = await fetchPrayerTimes(
+    position.coords.latitude,
+    position.coords.longitude
+  );
+
+  console.log('Prayer times:', prayerTimes);
+});
+```
+
+### Configurer les alarmes de prière
+
+```typescript
+async function setupPrayerAlarms(prayerTimes: PrayerTimes) {
+  // Effacer les anciennes alarmes
+  await chrome.alarms.clearAll();
+
+  // Créer une alarme pour chaque prière
+  const prayers = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'] as const;
+
+  for (const prayer of prayers) {
+    const time = prayerTimes[prayer];
+    const [hours, minutes] = time.split(':').map(Number);
+
+    const now = new Date();
+    const prayerTime = new Date(now);
+    prayerTime.setHours(hours, minutes, 0, 0);
+
+    // Si l'heure est déjà passée aujourd'hui, planifier pour demain
+    if (prayerTime < now) {
+      prayerTime.setDate(prayerTime.getDate() + 1);
+    }
+
+    await chrome.alarms.create(`prayer-${prayer}`, {
+      when: prayerTime.getTime(),
+    });
+  }
+}
+
+// Écouter les alarmes
+chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name.startsWith('prayer-')) {
+    const prayerName = alarm.name.replace('prayer-', '');
+
+    // Afficher une notification
+    chrome.notifications.create({
+      type: 'basic',
+      iconUrl: 'icons/icon128.png',
+      title: 'Heure de prière',
+      message: `Il est l'heure de ${prayerName}`,
+      priority: 2,
+    });
+  }
+});
+```
+
+## Gestion des erreurs
+
+### Gestionnaire d'erreurs global
+
+```typescript
+class MuslimGuardAPI {
+  private async handleResponse(response: Response) {
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+
+      switch (response.status) {
+        case 401:
+          throw new Error('Authentication required. Please sign in again.');
+        case 403:
+          throw new Error('Access forbidden. Check your subscription.');
+        case 404:
+          throw new Error('Resource not found.');
+        case 429:
+          throw new Error('Too many requests. Please try again later.');
+        case 500:
+          throw new Error('Server error. Please try again later.');
+        default:
+          throw new Error(errorData.message || 'An error occurred');
+      }
+    }
+
+    return response.json();
+  }
+
+  async get(endpoint: string) {
+    const { authToken } = await chrome.storage.local.get('authToken');
+
+    const response = await fetch(`https://api.muslimguard.com${endpoint}`, {
+      headers: {
+        'Authorization': `Bearer ${authToken}`,
+      },
+    });
+
+    return this.handleResponse(response);
+  }
+}
+
+// Utilisation
+const api = new MuslimGuardAPI();
+
+try {
+  const rules = await api.get('/api/blocking-rules');
+  console.log('Rules:', rules);
+} catch (error) {
+  console.error('Error fetching rules:', error.message);
+  // Afficher un message à l'utilisateur
+}
+```
+
+## Optimisations
+
+### Cache des requêtes
+
+```typescript
+class CachedAPI {
+  private cache = new Map<string, { data: any; timestamp: number }>();
+  private cacheDuration = 5 * 60 * 1000; // 5 minutes
+
+  async fetchWithCache(endpoint: string, options?: RequestInit) {
+    const cached = this.cache.get(endpoint);
+
+    if (cached && Date.now() - cached.timestamp < this.cacheDuration) {
+      return cached.data;
+    }
+
+    const response = await fetch(endpoint, options);
+    const data = await response.json();
+
+    this.cache.set(endpoint, { data, timestamp: Date.now() });
+
+    return data;
+  }
+
+  invalidateCache(endpoint?: string) {
+    if (endpoint) {
+      this.cache.delete(endpoint);
+    } else {
+      this.cache.clear();
+    }
+  }
+}
+```
+
+### Retry automatique
+
+```typescript
+async function fetchWithRetry(
+  url: string,
+  options: RequestInit = {},
+  maxRetries = 3
+): Promise<Response> {
+  let lastError: Error;
+
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      const response = await fetch(url, options);
+
+      if (response.ok) {
+        return response;
+      }
+
+      // Ne pas réessayer pour les erreurs client (4xx)
+      if (response.status >= 400 && response.status < 500) {
+        return response;
+      }
+
+      lastError = new Error(`HTTP ${response.status}`);
+    } catch (error) {
+      lastError = error as Error;
+    }
+
+    // Attendre avant de réessayer (backoff exponentiel)
+    if (i < maxRetries - 1) {
+      await new Promise(resolve => setTimeout(resolve, Math.pow(2, i) * 1000));
+    }
+  }
+
+  throw lastError!;
+}
+```
+
+## Prochaines étapes
+
+- [Référence complète de l'API](/docs/api/endpoints)
+- [Guide d'authentification](/docs/api/authentication)
+- [Contribuer à l'extension](https://github.com/muslimguard/extension)
+
+<Callout type="info">
+Pour plus d'exemples et de cas d'usage, consultez notre [dépôt GitHub](https://github.com/muslimguard/extension) et la [documentation interactive de l'API](https://api.muslimguard.com/docs).
+</Callout>

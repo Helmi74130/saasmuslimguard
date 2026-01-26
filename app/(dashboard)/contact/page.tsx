@@ -57,7 +57,7 @@ export default function ContactPage() {
             Contactez-nous
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Une question ? Une suggestion ? N'hésitez pas à nous contacter.
+            Une question ? N'hésitez pas à nous contacter.
             Nous vous répondrons dans les plus brefs délais.
           </p>
         </motion.div>
