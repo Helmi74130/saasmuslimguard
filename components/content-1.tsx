@@ -94,7 +94,7 @@ export default function ContentSectionOne() {
                         <BarChart3 className="h-4 w-4" />
                         <span>Dashboard</span>
                     </motion.div>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#003463] to-purple-600 bg-clip-text text-transparent">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#0C3E6A] via-blue-500 to-emerald-500 bg-clip-text text-transparent">
                         Gardez le contrôle avec des statistiques claires
                     </h2>
                     <p className="mt-4 text-lg text-muted-foreground">
@@ -139,7 +139,7 @@ export default function ContentSectionOne() {
                                 </div>
                             </div>
                             <Image
-                                src="/images/dashboardstats.png"
+                                src="/images/statsmg2.jpg"
                                 className="w-full"
                                 alt="Dashboard MuslimGuard - Statistiques de protection"
                                 width={1207}

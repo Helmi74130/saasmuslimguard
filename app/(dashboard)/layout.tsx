@@ -182,7 +182,7 @@ function Header() {
               <div className="flex flex-col h-full">
                 {/* Header du menu */}
                 <div className="mb-8">
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-2 mt-3 px-3">
                     <Image
                       src="/images/logo.png"
                       alt="Muslim Guard"
@@ -192,7 +192,7 @@ function Header() {
                     />
                     <span className="text-lg font-semibold text-gray-900">Menu</span>
                   </div>
-                  <p className="text-xs text-gray-500">Navigation rapide</p>
+                  <p className="text-xs text-gray-500 px-3">Navigation rapide</p>
                 </div>
 
                 {/* Navigation links */}

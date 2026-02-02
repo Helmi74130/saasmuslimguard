@@ -2,6 +2,19 @@ import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { BookOpen, Download, Settings, Sparkles, Code, AlertCircle, ArrowRight } from 'lucide-react';
 import navigation from '@/content/config/docs-navigation.json';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Documentation MuslimGuard – Guide Complet d\'Installation et d\'Utilisation',
+  description: 'Guide complet pour installer, configurer et utiliser MuslimGuard. Apprenez à protéger votre famille en ligne avec notre contrôle parental islamique intelligent.',
+  keywords: 'documentation muslimguard, guide installation contrôle parental islamique, tutoriel muslimguard, configuration protection famille musulmane',
+  openGraph: {
+    title: 'Documentation MuslimGuard – Guide Complet',
+    description: 'Installez et configurez MuslimGuard en moins de 5 minutes avec notre documentation complète.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
+};
 
 const iconMap = {
   BookOpen,

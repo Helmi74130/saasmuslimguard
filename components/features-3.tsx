@@ -15,7 +15,7 @@ export default function Features() {
 
             <div className="@container relative mx-auto max-w-7xl px-6">
                 <div className="text-center">
-                    <h2 className="text-balance text-4xl font-semibold lg:text-5xl bg-gradient-to-r from-[#0C3E6A] via-blue-600 to-[#0C3E6A] bg-clip-text text-transparent">Les pires influences, le haram et les contenus dangereux commencent en ligne</h2>
+                    <h2 className="text-balance text-4xl font-semibold lg:text-5xl bg-gradient-to-r from-[#0C3E6A] via-blue-500 to-emerald-500 bg-clip-text text-transparent">Les pires influences, le haram et les contenus dangereux commencent en ligne</h2>
                     <p className="mt-4">Internet expose nos enfants à des influences dangereuses. MuslimGuard bloque ce qui va à l’encontre de nos valeurs, pour protéger leur innocence et leur foi.</p>
                 </div>
                 <div className="mx-auto mt-8 grid max-w-sm gap-6 md:mt-16 md:max-w-none md:grid-cols-2 lg:grid-cols-3">

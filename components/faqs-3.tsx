@@ -138,7 +138,7 @@ export default function FAQsThree() {
                             </p>
                         </div>
                         <Link
-                            href="mailto:contact@muslimguard.com"
+                            href="/contact"
                             className="inline-flex items-center gap-2 rounded-full bg-[#003463] px-6 py-3 text-sm font-medium text-white hover:bg-[#003463]/90 transition-colors"
                         >
                             <span>Nous contacter</span>

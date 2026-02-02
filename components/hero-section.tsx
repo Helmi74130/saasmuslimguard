@@ -134,10 +134,10 @@ export default function HeroSection() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
                             {/* Première rangée */}
-                            <div className="grid grid-cols-3 gap-8 items-center">
+                            <div className="grid grid-cols-3 gap-4 sm:gap-8 items-center">
                                 <div className="flex justify-center">
                                     <img
-                                        className="h-10 w-auto sm:h-12"
+                                        className="h-6 w-auto sm:h-10 md:h-12"
                                         src="/images/chrome.png"
                                         alt="Chrome Logo"
                                         height="48"
@@ -146,7 +146,7 @@ export default function HeroSection() {
                                 </div>
                                 <div className="flex justify-center">
                                     <img
-                                        className="h-10 w-auto sm:h-12"
+                                        className="h-6 w-auto sm:h-10 md:h-12"
                                         src="/images/microsoft.png"
                                         alt="Microsoft Logo"
                                         height="48"
@@ -155,7 +155,7 @@ export default function HeroSection() {
                                 </div>
                                 <div className="flex justify-center">
                                     <img
-                                        className="h-10 w-auto sm:h-12"
+                                        className="h-6 w-auto sm:h-10 md:h-12"
                                         src="/images/google.png"
                                         alt="Google Logo"
                                         height="48"
@@ -164,10 +164,10 @@ export default function HeroSection() {
                                 </div>
                             </div>
                             {/* Deuxième rangée */}
-                            <div className="grid grid-cols-3 gap-8 items-center">
+                            <div className="grid grid-cols-3 gap-4 sm:gap-8 items-center">
                                 <div className="flex justify-center">
                                     <img
-                                        className="h-10 w-auto sm:h-12"
+                                        className="h-6 w-auto sm:h-10 md:h-12"
                                         src="/images/edge.png"
                                         alt="Edge Logo"
                                         height="48"
@@ -176,7 +176,7 @@ export default function HeroSection() {
                                 </div>
                                 <div className="flex justify-center">
                                     <img
-                                        className="h-10 w-auto sm:h-12"
+                                        className="h-6 w-auto sm:h-10 md:h-12"
                                         src="/images/opera.png"
                                         alt="Opera Logo"
                                         height="48"
@@ -185,7 +185,7 @@ export default function HeroSection() {
                                 </div>
                                 <div className="flex justify-center">
                                     <img
-                                        className="h-10 w-auto sm:h-12"
+                                        className="h-6 w-auto sm:h-10 md:h-12"
                                         src="/images/Brave.png"
                                         alt="Brave Logo"
                                         height="48"

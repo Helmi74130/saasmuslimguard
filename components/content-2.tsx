@@ -64,7 +64,7 @@ export default function ContentSection() {
                     className="relative z-10 max-w-xl text-4xl font-medium lg:text-5xl"
                 >
                     <motion.span
-                        className="inline-block bg-gradient-to-r from-foreground via-purple-600 to-foreground bg-clip-text text-transparent"
+                        className="inline-block bg-gradient-to-r from-[#0C3E6A] via-blue-500 to-emerald-500 bg-clip-text text-transparent"
                         animate={{
                             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                         }}
@@ -80,7 +80,7 @@ export default function ContentSection() {
                         La navigation s'adapte automatiquement aux heures de prière
                     </motion.span>
                     <motion.span
-                        className="absolute -right-8 -top-6 text-purple-500"
+                        className="absolute -right-8 -top-6 text-[#0C3E6A]"
                         animate={{
                             rotate: [0, 360],
                             scale: [1, 1.2, 1],
@@ -112,7 +112,7 @@ export default function ContentSection() {
                             initial={{ opacity: 0, x: -30 }}
                             animate={titleInView ? { opacity: 1, x: 0 } : {}}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                            className="text-lg leading-relaxed text-muted-foreground"
+                            className="text-lg leading-relaxed"
                         >
                             Les horaires sont calculés en temps réel selon votre ville,
                             avec une mise à jour quotidienne pour une protection toujours alignée.
@@ -200,11 +200,7 @@ export default function ContentSection() {
                     >
                         <motion.div
                             style={{ scale, rotate }}
-                            whileHover={{
-                                scale: 1.02,
-                                rotate: 0,
-                                transition: { duration: 0.3 }
-                            }}
+
                             className="group relative overflow-hidden rounded-2xl border border-border/50 p-2"
                         >
                             {/* Glow effect */}
@@ -237,11 +233,10 @@ export default function ContentSection() {
 
                             <motion.div
                                 className="relative overflow-hidden rounded-[12px]"
-                                whileHover={{ scale: 1.02 }}
-                                transition={{ duration: 0.3 }}
+                                
                             >
                                 <Image
-                                    src="/images/prayer-time-dashboard.png"
+                                    src="/images/salatdash.jpg"
                                     className="hidden rounded-[12px] dark:block"
                                     alt="Blocage automatique pendant les heures de prière"
                                     width={1007}
@@ -249,7 +244,7 @@ export default function ContentSection() {
                                     priority
                                 />
                                 <Image
-                                    src="/images/prayer-time-dashboard.png"
+                                    src="/images/salatdash.jpg"
                                     className="rounded-[12px] shadow-2xl dark:hidden"
                                     alt="Blocage automatique pendant les heures de prière"
                                     width={1007}
