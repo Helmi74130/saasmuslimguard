@@ -8,6 +8,7 @@ import type { NavigationSection } from '@/lib/mdx/types';
 
 interface DocsSidebarProps {
   navigation: NavigationSection[];
+  onNavigate?: () => void;
 }
 
 const iconMap = {
@@ -19,7 +20,7 @@ const iconMap = {
   AlertCircle,
 };
 
-export function DocsSidebar({ navigation }: DocsSidebarProps) {
+export function DocsSidebar({ navigation, onNavigate }: DocsSidebarProps) {
   const pathname = usePathname();
   const [openSections, setOpenSections] = useState<Set<string>>(
     new Set(navigation.map((section) => section.slug))
@@ -38,7 +39,7 @@ export function DocsSidebar({ navigation }: DocsSidebarProps) {
   };
 
   return (
-    <nav className="w-64 sticky top-20 h-[calc(100vh-5rem)] overflow-y-auto pr-4 pb-10">
+    <nav className="w-full md:w-64 md:sticky md:top-20 md:h-[calc(100vh-5rem)] overflow-y-auto md:pr-4 pb-10">
       <div className="space-y-6">
         {navigation.map((section) => {
           const Icon = iconMap[section.icon as keyof typeof iconMap] || BookOpen;
@@ -71,6 +72,7 @@ export function DocsSidebar({ navigation }: DocsSidebarProps) {
                       <li key={item.slug}>
                         <Link
                           href={itemPath}
+                          onClick={onNavigate}
                           className={`block py-1.5 px-3 text-sm rounded transition-colors ${
                             isActive
                               ? 'bg-[#003463] text-white dark:bg-blue-600'

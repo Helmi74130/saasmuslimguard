@@ -47,7 +47,7 @@ export default function Features() {
 
                                     {/* Blocking overlay animation */}
                                     <motion.div
-                                        className="absolute inset-0 bg-gradient-to-b from-red-500/90 via-red-600/95 to-red-700/90 flex flex-col items-center justify-center"
+                                        className="absolute inset-0 bg-gradient-to-b from-[#003461]/90 via-[#003461]/95 to-[#003461]/90 flex flex-col items-center justify-center"
                                         initial={{ top: '-100%' }}
                                         animate={{ top: 0 }}
                                         transition={{
@@ -117,7 +117,7 @@ export default function Features() {
 
                                 {/* Scanning line animation */}
                                 <motion.div
-                                    className="absolute inset-x-0 h-8 bg-gradient-to-b from-purple-500/30 via-purple-400/50 to-purple-500/30 blur-sm"
+                                    className="absolute inset-x-0 h-8 bg-gradient-to-b from-[#003461]/30 via-[#003461]/50 to-[#003461]/30 blur-sm"
                                     initial={{ top: '-2rem' }}
                                     animate={{ top: '100%' }}
                                     transition={{
@@ -130,7 +130,7 @@ export default function Features() {
 
                                 {/* Scan line sharp edge */}
                                 <motion.div
-                                    className="absolute inset-x-0 h-0.5 bg-purple-500"
+                                    className="absolute inset-x-0 h-0.5 bg-[#003461]"
                                     initial={{ top: '-0.5rem' }}
                                     animate={{ top: '100%' }}
                                     transition={{
@@ -147,18 +147,18 @@ export default function Features() {
                         </CardContent>
                     </Card>
 
-                    <Card className="group overflow-hidden shadow-zinc-950/5 border border-amber-400/10 hover:border-amber-400/20 transition-colors">
+                    <Card className="group overflow-hidden shadow-zinc-950/5 border border-[#003461]/10 hover:border-[#003461]/20 transition-colors">
                         <CardContent className="space-y-3">
                             {/* Clock with prayer pause animation */}
-                            <div className="relative bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 rounded-lg p-6 border border-amber-200 dark:border-amber-800 overflow-hidden min-h-[160px]">
+                            <div className="relative bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 rounded-lg p-6 border border-blue-200 dark:border-blue-800 overflow-hidden min-h-[160px]">
                                 {/* Clock circle */}
-                                <div className="relative mx-auto w-24 h-24 rounded-full border-4 border-amber-300 dark:border-amber-700 bg-white dark:bg-gray-800">
+                                <div className="relative mx-auto w-24 h-24 rounded-full border-4 border-[#003461]/30 dark:border-[#003461]/70 bg-white dark:bg-gray-800">
                                     {/* Clock center dot */}
-                                    <div className="absolute top-1/2 left-1/2 w-2 h-2 -translate-x-1/2 -translate-y-1/2 bg-amber-600 rounded-full z-10"></div>
+                                    <div className="absolute top-1/2 left-1/2 w-2 h-2 -translate-x-1/2 -translate-y-1/2 bg-[#003461] rounded-full z-10"></div>
 
                                     {/* Hour hand */}
                                     <motion.div
-                                        className="absolute top-1/2 left-1/2 origin-bottom w-1 h-7 bg-amber-600 rounded-full"
+                                        className="absolute top-1/2 left-1/2 origin-bottom w-1 h-7 bg-[#003461] rounded-full"
                                         style={{ translateX: '-50%', translateY: '-100%' }}
                                         animate={{ rotate: 360 }}
                                         transition={{
@@ -170,7 +170,7 @@ export default function Features() {
 
                                     {/* Minute hand */}
                                     <motion.div
-                                        className="absolute top-1/2 left-1/2 origin-bottom w-0.5 h-9 bg-amber-500 rounded-full"
+                                        className="absolute top-1/2 left-1/2 origin-bottom w-0.5 h-9 bg-[#003461]/80 rounded-full"
                                         style={{ translateX: '-50%', translateY: '-100%' }}
                                         animate={{ rotate: 360 }}
                                         transition={{
@@ -181,15 +181,15 @@ export default function Features() {
                                     />
 
                                     {/* Prayer time markers */}
-                                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-2 bg-amber-400 rounded"></div>
-                                    <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-2 bg-amber-400 rounded"></div>
-                                    <div className="absolute left-1 top-1/2 -translate-y-1/2 w-2 h-1 bg-amber-400 rounded"></div>
-                                    <div className="absolute right-1 top-1/2 -translate-y-1/2 w-2 h-1 bg-amber-400 rounded"></div>
+                                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-2 bg-[#003461]/60 rounded"></div>
+                                    <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-2 bg-[#003461]/60 rounded"></div>
+                                    <div className="absolute left-1 top-1/2 -translate-y-1/2 w-2 h-1 bg-[#003461]/60 rounded"></div>
+                                    <div className="absolute right-1 top-1/2 -translate-y-1/2 w-2 h-1 bg-[#003461]/60 rounded"></div>
                                 </div>
 
                                 {/* Prayer pause overlay */}
                                 <motion.div
-                                    className="absolute inset-0 bg-gradient-to-b from-amber-600/80 via-amber-500/90 to-orange-600/80 backdrop-blur-sm flex flex-col items-center justify-center"
+                                    className="absolute inset-0 bg-gradient-to-b from-[#003461]/80 via-[#003461]/90 to-[#003461]/80 backdrop-blur-sm flex flex-col items-center justify-center"
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: [0, 1, 1, 0], scale: [0.8, 1, 1, 0.8] }}
                                     transition={{
@@ -221,10 +221,10 @@ export default function Features() {
                         </CardContent>
                     </Card>
 
-                    <Card className="group overflow-hidden shadow-zinc-950/5 border border-rose-400/10 hover:border-rose-400/20 transition-colors">
+                    <Card className="group overflow-hidden shadow-zinc-950/5 border border-[#003461]/10 hover:border-[#003461]/20 transition-colors">
                         <CardContent className="space-y-3">
                             {/* Local Computer to Server Animation (Data stays local) */}
-                            <div className="relative bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20 rounded-lg p-6 border border-rose-200 dark:border-rose-800 overflow-hidden min-h-[160px] flex items-center justify-center">
+                            <div className="relative bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 rounded-lg p-6 border border-blue-200 dark:border-blue-800 overflow-hidden min-h-[160px] flex items-center justify-center">
                                 {/* Local Computer (left side) - stays secure with lock */}
                                 <div className="absolute left-8">
                                     <motion.div
@@ -239,7 +239,7 @@ export default function Features() {
                                         }}
                                     >
                                         {/* Computer/Laptop icon */}
-                                        <svg className="w-14 h-14 text-rose-600 dark:text-rose-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-14 h-14 text-[#003461] dark:text-[#003461]/80" fill="currentColor" viewBox="0 0 24 24">
                                             <rect x="3" y="4" width="18" height="12" rx="1" opacity="0.9"/>
                                             <rect x="5" y="6" width="14" height="8" fill="white" opacity="0.3"/>
                                             <path d="M2 18h20v1a1 1 0 01-1 1H3a1 1 0 01-1-1v-1z"/>
@@ -285,7 +285,7 @@ export default function Features() {
                                 {[...Array(6)].map((_, i) => (
                                     <motion.div
                                         key={i}
-                                        className="absolute w-1.5 h-1.5 bg-rose-500 rounded-full"
+                                        className="absolute w-1.5 h-1.5 bg-[#003461] rounded-full"
                                         initial={{
                                             left: '35%',
                                             top: '50%',
@@ -324,7 +324,7 @@ export default function Features() {
                                         }}
                                     >
                                         {/* Cloud shape using Server icon */}
-                                        <svg className="w-12 h-12 text-rose-400 dark:text-rose-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-12 h-12 text-[#003461]/60 dark:text-[#003461]/70" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M19 18H5c-1.7 0-3-1.3-3-3s1.3-3 3-3c0-3.3 2.7-6 6-6 2.8 0 5.1 1.9 5.8 4.5.3-.1.6-.1 1-.1 1.7 0 3 1.3 3 3s-1.3 3-3 3z"/>
                                             <rect x="8" y="14" width="2" height="2" opacity="0.6"/>
                                             <rect x="12" y="14" width="2" height="2" opacity="0.6"/>
@@ -354,7 +354,7 @@ export default function Features() {
 
                                 {/* Arrow showing blocked direction (pointing right but fading) */}
                                 <motion.div
-                                    className="absolute left-1/2 -translate-x-1/2 text-rose-500"
+                                    className="absolute left-1/2 -translate-x-1/2 text-[#003461]"
                                     animate={{
                                         opacity: [0, 1, 0, 0],
                                         x: [-5, 0, 5, 5]
@@ -397,15 +397,15 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                         </CardContent>
                     </Card>
 
-                    <Card className="group overflow-hidden shadow-zinc-950/5 border border-teal-400/10 hover:border-teal-400/20 transition-colors">
+                    <Card className="group overflow-hidden shadow-zinc-950/5 border border-[#003461]/10 hover:border-[#003461]/20 transition-colors">
                         <CardContent className="space-y-3">
                             {/* Traffic Light Time Control Animation */}
-                            <div className="relative bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/20 dark:to-cyan-950/20 rounded-lg p-6 border border-teal-200 dark:border-teal-800 overflow-hidden min-h-[160px]">
+                            <div className="relative bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 rounded-lg p-6 border border-blue-200 dark:border-blue-800 overflow-hidden min-h-[160px]">
                                 <div className="flex items-center justify-center gap-8">
                                     {/* Clock with colored time zones */}
                                     <div className="relative">
                                         {/* Main clock circle */}
-                                        <div className="relative w-24 h-24 rounded-full border-4 border-teal-300 dark:border-teal-700 bg-white dark:bg-gray-800">
+                                        <div className="relative w-24 h-24 rounded-full border-4 border-[#003461]/30 dark:border-[#003461]/70 bg-white dark:bg-gray-800">
                                             {/* Colored segments on clock (allowed vs blocked times) */}
                                             {/* Green segment (9h-17h allowed) */}
                                             <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
@@ -433,17 +433,17 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                                             </svg>
 
                                             {/* Clock center dot */}
-                                            <div className="absolute top-1/2 left-1/2 w-2 h-2 -translate-x-1/2 -translate-y-1/2 bg-teal-600 rounded-full z-20"></div>
+                                            <div className="absolute top-1/2 left-1/2 w-2 h-2 -translate-x-1/2 -translate-y-1/2 bg-[#003461] rounded-full z-20"></div>
 
                                             {/* Hour markers */}
-                                            <div className="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-2 bg-teal-400 rounded"></div>
-                                            <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-2 bg-teal-400 rounded"></div>
-                                            <div className="absolute left-1 top-1/2 -translate-y-1/2 w-2 h-1 bg-teal-400 rounded"></div>
-                                            <div className="absolute right-1 top-1/2 -translate-y-1/2 w-2 h-1 bg-teal-400 rounded"></div>
+                                            <div className="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-2 bg-[#003461]/60 rounded"></div>
+                                            <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-2 bg-[#003461]/60 rounded"></div>
+                                            <div className="absolute left-1 top-1/2 -translate-y-1/2 w-2 h-1 bg-[#003461]/60 rounded"></div>
+                                            <div className="absolute right-1 top-1/2 -translate-y-1/2 w-2 h-1 bg-[#003461]/60 rounded"></div>
 
                                             {/* Rotating clock hand */}
                                             <motion.div
-                                                className="absolute top-1/2 left-1/2 origin-bottom w-1 h-9 bg-teal-600 rounded-full z-10"
+                                                className="absolute top-1/2 left-1/2 origin-bottom w-1 h-9 bg-[#003461] rounded-full z-10"
                                                 style={{ translateX: '-50%', translateY: '-100%' }}
                                                 animate={{ rotate: 360 }}
                                                 transition={{
@@ -609,10 +609,10 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                         </CardContent>
                     </Card>
 
-                    <Card className="group overflow-hidden shadow-zinc-950/5 border border-indigo-400/10 hover:border-indigo-400/20 transition-colors">
+                    <Card className="group overflow-hidden shadow-zinc-950/5 border border-[#003461]/10 hover:border-[#003461]/20 transition-colors">
                         <CardContent className="space-y-3">
                             {/* Unlimited Devices Multiplication Animation */}
-                            <div className="relative bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-950/20 dark:to-violet-950/20 rounded-lg p-6 border border-indigo-200 dark:border-indigo-800 overflow-hidden min-h-[160px] flex items-center justify-center">
+                            <div className="relative bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 rounded-lg p-6 border border-blue-200 dark:border-blue-800 overflow-hidden min-h-[160px] flex items-center justify-center">
 
                                 {/* Central Computer (always visible) */}
                                 <div className="relative z-10">
@@ -626,7 +626,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                                             repeatDelay: 4
                                         }}
                                     >
-                                        <svg className="w-16 h-16 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-16 h-16 text-[#003461] dark:text-[#003461]/80" fill="currentColor" viewBox="0 0 24 24">
                                             <rect x="3" y="4" width="18" height="12" rx="1" opacity="0.9"/>
                                             <rect x="5" y="6" width="14" height="8" fill="white" opacity="0.3"/>
                                             <path d="M2 18h20v1a1 1 0 01-1 1H3a1 1 0 01-1-1v-1z"/>
@@ -636,7 +636,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
 
                                     {/* Pulse ring effect */}
                                     <motion.div
-                                        className="absolute inset-0 rounded-full border-2 border-indigo-400"
+                                        className="absolute inset-0 rounded-full border-2 border-[#003461]/60"
                                         animate={{
                                             scale: [1, 2, 2],
                                             opacity: [0.6, 0.2, 0]
@@ -666,7 +666,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                                         times: [0, 0.15, 0.25, 0.85, 1]
                                     }}
                                 >
-                                    <svg className="w-10 h-10 text-indigo-500 dark:text-indigo-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-10 h-10 text-[#003461]/70 dark:text-[#003461]/70" fill="currentColor" viewBox="0 0 24 24">
                                         <rect x="3" y="4" width="18" height="12" rx="1" opacity="0.9"/>
                                         <rect x="5" y="6" width="14" height="8" fill="white" opacity="0.3"/>
                                         <path d="M2 18h20v1a1 1 0 01-1 1H3a1 1 0 01-1-1v-1z"/>
@@ -688,7 +688,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                                         times: [0, 0.25, 0.35, 0.45, 0.85, 1]
                                     }}
                                 >
-                                    <svg className="w-10 h-10 text-indigo-500 dark:text-indigo-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-10 h-10 text-[#003461]/70 dark:text-[#003461]/70" fill="currentColor" viewBox="0 0 24 24">
                                         <rect x="3" y="4" width="18" height="12" rx="1" opacity="0.9"/>
                                         <rect x="5" y="6" width="14" height="8" fill="white" opacity="0.3"/>
                                         <path d="M2 18h20v1a1 1 0 01-1 1H3a1 1 0 01-1-1v-1z"/>
@@ -710,7 +710,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                                         times: [0, 0.35, 0.45, 0.5, 0.6, 0.85, 1]
                                     }}
                                 >
-                                    <svg className="w-10 h-10 text-indigo-500 dark:text-indigo-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-10 h-10 text-[#003461]/70 dark:text-[#003461]/70" fill="currentColor" viewBox="0 0 24 24">
                                         <rect x="3" y="4" width="18" height="12" rx="1" opacity="0.9"/>
                                         <rect x="5" y="6" width="14" height="8" fill="white" opacity="0.3"/>
                                         <path d="M2 18h20v1a1 1 0 01-1 1H3a1 1 0 01-1-1v-1z"/>
@@ -732,7 +732,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                                         times: [0, 0.45, 0.5, 0.55, 0.6, 0.7, 0.85, 1]
                                     }}
                                 >
-                                    <svg className="w-10 h-10 text-indigo-500 dark:text-indigo-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-10 h-10 text-[#003461]/70 dark:text-[#003461]/70" fill="currentColor" viewBox="0 0 24 24">
                                         <rect x="3" y="4" width="18" height="12" rx="1" opacity="0.9"/>
                                         <rect x="5" y="6" width="14" height="8" fill="white" opacity="0.3"/>
                                         <path d="M2 18h20v1a1 1 0 01-1 1H3a1 1 0 01-1-1v-1z"/>
@@ -745,7 +745,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                                     <motion.line
                                         x1="50%" y1="50%"
                                         x2="25%" y2="25%"
-                                        stroke="rgba(99, 102, 241, 0.3)"
+                                        stroke="rgba(0, 52, 97, 0.3)"
                                         strokeWidth="2"
                                         strokeDasharray="4 4"
                                         initial={{ pathLength: 0, opacity: 0 }}
@@ -763,7 +763,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                                     <motion.line
                                         x1="50%" y1="50%"
                                         x2="75%" y2="25%"
-                                        stroke="rgba(99, 102, 241, 0.3)"
+                                        stroke="rgba(0, 52, 97, 0.3)"
                                         strokeWidth="2"
                                         strokeDasharray="4 4"
                                         initial={{ pathLength: 0, opacity: 0 }}
@@ -781,7 +781,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                                     <motion.line
                                         x1="50%" y1="50%"
                                         x2="25%" y2="75%"
-                                        stroke="rgba(99, 102, 241, 0.3)"
+                                        stroke="rgba(0, 52, 97, 0.3)"
                                         strokeWidth="2"
                                         strokeDasharray="4 4"
                                         initial={{ pathLength: 0, opacity: 0 }}
@@ -799,7 +799,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                                     <motion.line
                                         x1="50%" y1="50%"
                                         x2="75%" y2="75%"
-                                        stroke="rgba(99, 102, 241, 0.3)"
+                                        stroke="rgba(0, 52, 97, 0.3)"
                                         strokeWidth="2"
                                         strokeDasharray="4 4"
                                         initial={{ pathLength: 0, opacity: 0 }}
@@ -816,7 +816,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
                                 </svg>
 
                                 {/* Counter display */}
-                                <div className="absolute top-2 right-2 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                                <div className="absolute top-2 right-2 bg-[#003461] text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                                     <motion.span
                                         key="counter"
                                         animate={{
@@ -892,7 +892,7 @@ MuslimGuard fonctionne de manière simple et transparente, sans collecte cachée
 
                                 {/* "Illimité" badge */}
                                 <motion.div
-                                    className="absolute bottom-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-violet-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
+                                    className="absolute bottom-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#003461] to-[#003461] text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{
                                         opacity: [0, 0, 0, 0, 0, 0, 0, 0, 1, 1],

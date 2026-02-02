@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import { getStripePrices, getStripeProducts } from '@/lib/payments/stripe';
 import { SubmitButton } from './submit-button';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Tarifs MuslimGuard – Plans Gratuit & Premium | Contrôle Parental Islamique',
@@ -166,11 +167,12 @@ function PricingCard({
       </ul>
 
       {isFree ? (
-        <button
-          className="w-full bg-[#003463]/10 text-[#003463] py-2 px-4 rounded-full font-semibold hover:bg-[#003463]/20 transition-colors"
+        <Link
+          href="/sign-up"
+          className="w-full bg-[#003463]/10 text-[#003463] py-2 px-4 rounded-full font-semibold hover:bg-[#003463]/20 transition-colors block text-center"
         >
           Essayer maintenant
-        </button>
+        </Link>
       ) : (
         <form action={checkoutAction}>
           <input type="hidden" name="priceId" value={priceId || ''} />
