@@ -26,7 +26,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   // Filter by tag
   if (params.tag) {
-    posts = posts.filter((post) => post.frontmatter.tags?.includes(params.tag));
+    const tag = params.tag;
+    posts = posts.filter((post) => post.frontmatter.tags?.includes(tag));
   }
 
   // Separate featured posts
