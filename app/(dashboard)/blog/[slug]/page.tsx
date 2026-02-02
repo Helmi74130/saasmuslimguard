@@ -3,6 +3,7 @@ import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/mdx/loader';
 import { getRelatedContent } from '@/lib/mdx/related';
 import { BlogHeader } from '@/components/blog/blog-header';
 import { RelatedPosts } from '@/components/blog/related-posts';
+import FooterSection from '@/components/footer';
 import type { Metadata } from 'next';
 
 interface BlogPostPageProps {
@@ -72,6 +73,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         <RelatedPosts posts={relatedPosts} />
       </article>
+
+      <FooterSection />
     </div>
   );
 }
