@@ -1,0 +1,102 @@
+---
+title: "Détection de mots-clés"
+description: "Comprendre et configurer le moteur d'analyse sémantique en temps réel"
+section: "configuration"
+order: 3
+lastUpdated: "2025-01-28"
+keywords: ["mots-clés", "intelligence", "temps réel", "protection proactive", "filtrage"]
+---
+
+# Détection de mots-clés intelligente
+
+La **détection par mots-clés** est la fonctionnalité la plus avancée de MuslimGuard. Elle permet de bloquer des contenus inappropriés même sur des sites qui ne figurent sur aucune liste noire (blogs, réseaux sociaux, forums, etc.).
+
+## Pourquoi est-ce indispensable ?
+
+Le Web évolue chaque seconde. Des milliers de nouveaux sites sont créés chaque jour, rendant les listes de blocage classiques (statiques) souvent obsolètes. 
+
+
+
+### La différence MuslimGuard
+* **Analyse en temps réel :** Dès qu'un lien est cliqué, MuslimGuard "lit" le contenu de la page avant l'utilisateur.
+* **Protection Proactive :** Si un mot interdit est détecté, la page est bloquée **avant** d'être affichée à l'écran.
+* **Indépendance :** Cela fonctionne partout, même sur un site d'actualité ou un site éducatif qui contiendrait un article inapproprié.
+
+---
+
+## Comment configurer vos mots-clés ?
+
+L'interface de configuration est pensée pour être simple et efficace. Vous avez un contrôle total sur la "sensibilité" du filtre.
+
+### Ajouter un mot-clé
+1. Rendez-vous dans l'onglet **Listes** puis dans **Détection de contenu dans les pages**.
+2. Saisissez le mot ou la phrase que vous souhaitez interdire (ex: "casino", "rencontre", ou des termes plus spécifiques).
+3. Cliquez sur **Ajouter**.
+
+<video
+  src="/videos/Addkeywordanalyses.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  style={{
+    width: "80%",
+    borderRadius: "12px",
+    marginBottom: "2rem"
+  }}
+/>
+
+<Callout type="info">
+**Note :** Le système n'est pas sensible à la casse. Ajouter "Haram" bloquera aussi "haram" ou "HARAM".
+</Callout>
+
+---
+
+## Fonctionnement technique : Sous le capot
+
+Lorsqu'un enfant tente d'accéder à une page, MuslimGuard effectue les étapes suivantes en quelques millisecondes :
+
+1.  **Extraction du texte :** L'extension analyse le texte visible et invisible (métadonnées) de la page.
+2.  **Comparaison instantanée :** Elle compare ce texte avec votre liste personnalisée.
+3.  **Action immédiate :** Si un mot correspond, la navigation est stoppée et une page de rappel est affichée.
+
+<Callout type="success" icon="⚡">
+**Performance :** Cette analyse est extrêmement légère. Elle ne ralentit pas la navigation et n'impacte pas les performances de l'ordinateur.
+</Callout>
+
+---
+
+## Bonnes pratiques & Exemples
+
+Pour une protection optimale, nous vous conseillons de varier les types de mots-clés :
+
+| Catégorie | Exemples de mots-clés |
+| :--- | :--- |
+| **Valeurs & Éthique** | "pari", "alcool", "voyance", "ésotérisme" |
+| **Contenus Adultes** | Termes liés à la pornographie ou à la nudité |
+| **Sécurité** | "hack", "crack", "logiciel gratuit" (sites souvent malveillants) |
+
+### Conseils pour éviter les "Faux Positifs"
+Évitez les mots trop courts ou trop génériques qui pourraient bloquer des sites éducatifs par erreur. 
+* *Exemple :* Au lieu de bloquer le mot "vin", préférez "achat de vin en ligne".
+
+---
+
+## Confidentialité garantie
+
+Contrairement à d'autres outils "intelligents", MuslimGuard ne délègue pas cette analyse à un serveur externe.
+
+<Callout type="warning" icon="🔒">
+**Zéro Cloud :** L'analyse du texte se fait **localement** sur votre navigateur. Aucune donnée de navigation, aucun mot-clé et aucun texte de page ne sort de votre ordinateur.
+</Callout>
+
+---
+
+## Prochaines étapes
+
+<Callout type="info">
+La détection de mots-clés est prête ? Passez à la synchronisation religieuse.
+</Callout>
+
+- [Pause Prière](/docs/configuration/prayer-times) - Apprenez à automatiser les pauses durant la Salat.
+- [Plages Horaires](/docs/configuration/schedules) - Organisez le temps d'écran quotidien.

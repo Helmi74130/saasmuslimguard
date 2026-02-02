@@ -1,88 +1,107 @@
 ---
 title: "Qu'est-ce que MuslimGuard ?"
-description: "Découvrez MuslimGuard, le premier contrôle parental conçu pour les familles musulmanes"
+description: "Une analyse détaillée de la solution MuslimGuard, son fonctionnement, sa philosophie et ses capacités techniques de protection pour les familles musulmanes."
 section: "introduction"
 order: 1
-lastUpdated: "2025-01-24"
-keywords: ["muslimguard", "contrôle parental", "islam", "protection en ligne"]
+lastUpdated: "2026-01-29"
+keywords: ["muslimguard", "protection parentale", "islam", "filtrage web", "sécurité famille", "salat"]
 ---
 
-# Qu'est-ce que MuslimGuard ?
+# MuslimGuard : L'excellence technologique au service de l'éthique musulmane
 
-**MuslimGuard** est une extension Chrome de contrôle parental innovante, spécialement conçue pour les familles musulmanes qui souhaitent protéger leurs enfants en ligne tout en respectant leurs valeurs islamiques.
+MuslimGuard est une réponse technologique rigoureuse aux défis spécifiques que pose l'internet moderne aux parents musulmans. Dans un écosystème numérique saturé de contenus en contradiction avec les valeurs islamiques, MuslimGuard agit comme un gardien autonome, capable de discerner et de bloquer le nuisible avant même qu'il ne soit exposé au regard de l'enfant.
 
-## Pourquoi MuslimGuard ?
+---
 
-Les solutions de contrôle parental traditionnelles ne tiennent pas compte des besoins spécifiques des familles musulmanes. MuslimGuard comble cette lacune en offrant :
+## Une philosophie de protection proactive
 
-- **Blocage personnalisé** selon vos valeurs familiales
-- **Mode prière automatique** qui suspend l'accès internet pendant les heures de prière
-- **Confidentialité local-first** - vos données restent sur vos appareils
-- **Appareils illimités** pour toute la famille
+La plupart des solutions de contrôle parental du marché fonctionnent sur un modèle réactif : elles bloquent des listes de sites web connues après qu'elles ont été signalées. MuslimGuard renverse ce paradigme en utilisant une approche proactive.
 
-## Fonctionnalités principales
+### L'importance du cadre éducatif numérique
+L'objectif de cette extension est de fournir aux parents un levier de contrôle qui ne se limite pas à l'interdiction, mais qui instaure un cadre de navigation sain. En déléguant la surveillance technique à MuslimGuard, les parents peuvent se concentrer sur l'aspect éducatif et spirituel, sachant que la barrière technique est active et intelligente.
 
-### 1. Blocage de contenu intelligent
+---
 
-Créez vos propres règles de blocage adaptées à vos principes :
+## Analyse approfondie des fonctionnalités
 
-```javascript
-// Bloquez des sites spécifiques
-const blockedSites = [
-  'inappropriate-site.com',
-  'social-media-for-kids.com'
-];
-```
+### 1. Le système de filtrage sémantique en temps réel
+C'est le cœur technologique de MuslimGuard. Au lieu de se reposer uniquement sur une liste noire d'adresses URL, l'extension analyse la structure textuelle de chaque page web durant son chargement (DOM Analysis).
 
-### 2. Détection de mots-clés en temps réel
+- **Détection par mots-clés :** Vous pouvez définir une liste de termes sensibles (haram, jeux d'argent, contenus explicites). Dès qu'un de ces termes apparaît avec une fréquence ou une importance définie sur une page, MuslimGuard déclenche un overlay de blocage immédiat.
 
-MuslimGuard scanne activement le contenu des pages web pour détecter :
-- Langage inapproprié
-- Contenu sensible
-- Mots-clés personnalisés
+### 2. Automatisation et discipline : Le Mode Salat
+MuslimGuard introduit une innovation majeure dans la gestion du temps d'écran : l'alignement du web sur le temps spirituel.
 
-### 3. Pause automatique pour la prière
+- **Synchronisation géographique :** En utilisant la sélection manuelle de votre ville, l'extension récupère les horaires exacts de prière.
+- **Interruption automatique :** À l'heure de chaque prière, l'accès internet est suspendu sur le navigateur. Cela retire la tentation de la distraction numérique et aide l'enfant à prioriser son obligation religieuse de manière autonome.
+- **Notifications de rappel :** Un message discret informe l'utilisateur de l'approche de la prière et de la mise en pause imminente de la navigation.
 
-<Callout type="info">
-La première extension de contrôle parental à intégrer les horaires de prière islamiques !
-</Callout>
+### 3. Gestion granulaire du temps et des accès
+Au-delà de la prière, la gestion saine du temps est un pilier de l'éducation.
+- **Plages horaires personnalisées :** Définissez des créneaux spécifiques pour les devoirs, les recherches éducatives et les loisirs. 
 
-L'extension bloque automatiquement l'accès internet pendant les heures de prière configurées, encourageant vos enfants à accomplir leur Salat.
+---
 
-### 4. Contrôle horaire
+## Sécurité et souveraineté des données (Local-First)
 
-Définissez des plages horaires d'accès :
-- Temps d'étude (8h-12h, 14h-18h)
-- Temps libre limité (18h-20h)
-- Blocage nocturne automatique
+À une époque où la revente de données de navigation est devenue la norme, MuslimGuard adopte une posture radicale : la confidentialité totale par l'architecture locale.
 
-## Pour qui est MuslimGuard ?
+- **Absence de serveurs tiers :** Vos listes de mots-clés, vos sites bloqués et vos horaires ne quittent jamais votre ordinateur. Aucun compte cloud n'est requis pour le fonctionnement de base, éliminant tout risque de fuite de données massives.
+- **Transparence totale :** En tant qu'extension locale, elle ne suit pas vos habitudes de consommation pour les revendre à des régies publicitaires. C'est un outil au service de la famille, et non l'inverse.
 
-- ✅ **Parents musulmans** soucieux de la protection en ligne de leurs enfants
-- ✅ **Familles** cherchant un contrôle parental respectueux de leurs valeurs
-- ✅ **Éducateurs** dans les institutions islamiques
-- ✅ **Individus** souhaitant un environnement web plus sain
+---
 
-## Comment ça fonctionne ?
+## Comparaison technique détaillée
 
-1. **Installation** - Ajoutez l'extension depuis le Chrome Web Store
-2. **Configuration** - Liez l'extension à votre compte MuslimGuard
-3. **Personnalisation** - Configurez vos règles et horaires de prière
-4. **Protection active** - L'extension surveille et bloque automatiquement
+| Capacité | MuslimGuard | Solutions Standards (Google/Apple) |
+| :--- | :--- | :--- |
+| **Filtrage de contenu Haram** | Analyse sémantique temps réel | Basé sur des catégories floues |
+| **Gestion de la Prière** | Native et automatisée | Inexistante |
+| **Stockage des données** | 100% Local (Souverain) | Serveurs Cloud (USA/Europe) |
+| **Installation** | Extension légère (Chromium) | Logiciel lourd ou OS dédié |
+| **Coût de déploiement** | Appareils illimités | Abonnement par appareil |
 
-## Prochaines étapes
+---
 
-<Callout type="success">
-Prêt à commencer ? Suivez notre guide de démarrage rapide !
-</Callout>
+## Guide de mise en œuvre pour les administrateurs familiaux
 
-- [Guide de démarrage rapide](/docs/introduction/quick-start) - Installez MuslimGuard en 5 minutes
-- [Prérequis système](/docs/introduction/system-requirements) - Vérifiez la compatibilité
-- [Installation](/docs/installation/chrome-store) - Instructions détaillées
+### Étape 1 : Installation
+Ajoutez l'extension MuslimGuard depuis le Chrome Web Store. Elle est compatible avec tous les navigateurs basés sur Chromium (Chrome, Microsoft Edge, Brave, Opera).
 
-## Besoin d'aide ?
+### Étape 2 : Configuration initiale
+1. **Accès au panneau de contrôle :** Cliquez sur l'icône du bouclier pour ouvrir l'interface de gestion.
+2. **Paramétrage de la ville :** Indiquez votre ville pour que les horaires de prière soient calculés selon les méthodes de calcul locales (UOIF, Ligue Islamique Mondiale, etc.).
+3. **Définition des filtres :** Saisissez vos noms de domaines à bannir et vos mots-clés personnalisés.
 
-Notre équipe est là pour vous aider :
-- 📚 Consultez notre [documentation complète](/docs)
-- 💬 [Contactez notre support](/contact)
-- 🐛 [Signaler un problème](/docs/troubleshooting)
+<video
+  src="/videos/epingleretouverturepopup.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  style={{
+    width: "80%",
+    borderRadius: "12px",
+    marginBottom: "2rem"
+  }}
+/>
+
+### Étape 3 : Verrouillage
+Une fois la configuration terminée, vous pouvez sécuriser l'accès aux réglages par un mot de passe parent pour empêcher toute modification par l'enfant.
+
+---
+
+## Foire Aux Questions (FAQ)
+
+**Est-ce que MuslimGuard ralentit la navigation ?**
+Non. L'analyse sémantique est optimisée pour s'exécuter en quelques millisecondes, sans impact perceptible sur la vitesse de chargement des pages.
+
+**L'extension fonctionne-t-elle en mode navigation privée ?**
+Oui, à condition d'autoriser l'extension dans les paramètres de navigation privée du navigateur (recommandé pour une protection efficace).
+
+**MuslimGuard peut-il être désinstallé par l'enfant ?**
+Sur les systèmes gérés (Windows/macOS), les parents peuvent restreindre la suppression des extensions via les politiques de groupe ou les profils de gestion.
+
+---
+
+[Télécharger MuslimGuard pour Chrome](/pricing) | [Support Technique](/contact)

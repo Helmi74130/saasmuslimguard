@@ -39,7 +39,7 @@ export default function HeroSection() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
                             >
-                                Le 1er contrôle parental conçu pour les familles musulmanes
+                                Bloquez le haram avant qu'il ne corrompe le cœur de votre enfant
                             </motion.h1>
                             <motion.p
                                 className="text-muted-foreground mx-auto my-8 max-w-2xl text-xl"
@@ -47,7 +47,7 @@ export default function HeroSection() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                             >
-                                Protégez vos enfants des contenus haram, des distractions et des dangers du web — tout en respectant nos valeurs et les horaires de prière.
+                                Notre technologie analyse le web en temps réel pour intercepter les contenus corrupteurs avant qu'ils ne s'affichent. C'est l'unique solution qui aligne votre vie numérique sur les valeurs de l'Islam.
                             </motion.p>
 
                             <motion.div

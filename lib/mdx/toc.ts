@@ -1,3 +1,4 @@
+import { slug } from 'github-slugger';
 import type { TocItem } from './types';
 
 /**
@@ -21,11 +22,8 @@ export function generateTOC(content: string): TocItem[] {
       .replace(/\*([^*]+)\*/g, '$1') // Remove italic
       .trim();
 
-    // Generate ID (same as rehype-slug)
-    const id = cleanText
-      .toLowerCase()
-      .replace(/\s+/g, '-')
-      .replace(/[^\w-]/g, '');
+    // Generate ID using github-slugger (same as rehype-slug)
+    const id = slug(cleanText);
 
     toc.push({ id, text: cleanText, level });
   }

@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { sendContactEmail, type ContactFormState } from './actions';
 import { Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
+import FooterSection from '@/components/footer';
 
 const initialState: ContactFormState = {};
 
@@ -257,6 +258,8 @@ export default function ContactPage() {
           </Link>
         </motion.div>
       </section>
+
+      <FooterSection />
     </main>
   );
 }

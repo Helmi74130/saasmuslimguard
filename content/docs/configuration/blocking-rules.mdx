@@ -1,0 +1,108 @@
+---
+title: "Règles de blocage"
+description: "Apprenez à configurer et personnaliser les filtres de protection pour un Internet sain"
+section: "configuration"
+order: 2
+lastUpdated: "2025-01-28"
+keywords: ["blocage", "filtres", "mots-clés", "sites interdits", "configuration"]
+---
+
+# Configuration des règles de blocage
+
+Le cœur de **MuslimGuard** réside dans sa capacité à filtrer le contenu de manière proactive. Contrairement aux filtres rigides, vous avez ici la main sur ce qui est autorisé ou non au sein de votre foyer.
+
+## 1. Gestion des sites internet
+
+Cette fonctionnalité vous permet de définir précisément quels domaines sont accessibles ou interdits.
+
+### Blocage par URL
+Vous pouvez ajouter des adresses spécifiques (ex: `site-inapproprie.com`) à votre liste noire. Dès que l'enfant tente d'accéder à ce domaine, MuslimGuard interrompt la connexion et affiche une page de protection.
+
+<video
+  src="/videos/adddomainname.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  style={{
+    width: "80%",
+    borderRadius: "12px",
+    marginBottom: "2rem"
+  }}
+/>
+
+
+### Listes personnalisées
+* **Ajout simple :** Copiez-collez l'URL du site à bannir.
+* **Flexibilité :** Vous pouvez activer ou désactiver une règle en un clic sans avoir à la supprimer.
+
+<Callout type="info">
+**Astuce :** Privilégiez le blocage du domaine racine (ex: `nomdusite.com`) pour bloquer l'intégralité des sous-pages de ce site.
+</Callout>
+
+---
+
+## 2. Détection par mots-clés (IA Temps Réel)
+
+C'est la fonctionnalité la plus puissante de MuslimGuard. Elle ne se base pas sur une liste de sites, mais sur le **contenu réel** affiché à l'écran.
+
+### Comment ça marche ?
+Dès qu'une page se charge, MuslimGuard scanne le texte présent. Si un ou plusieurs mots-clés définis par vos soins sont détectés :
+1.  La page est immédiatement masquée.
+2.  L'accès est verrouillé avant même que l'enfant ne puisse lire le contenu.
+
+### Pourquoi est-ce efficace ?
+Cela protège votre enfant contre :
+- Les nouveaux sites pas encore répertoriés.
+- Les résultats de recherche Google inappropriés.
+- Les articles de blogs ou réseaux sociaux contenant des thèmes haram.
+
+<Callout type="success" icon="🛡️">
+**Protection Proactive :** Le blocage intervient en quelques millisecondes, garantissant que l'œil ne soit pas exposé à l'image ou au texte nuisible.
+</Callout>
+
+---
+
+## 3. Catégories de contenus Haram
+
+MuslimGuard facilite votre configuration en proposant des thématiques pré-configurées que vous pouvez activer d'un geste :
+
+* **Pornographie et contenus adultes :** Blocage strict de toute nudité ou contenu suggestif.
+* **Jeux d'argent (Gambling) :** Protection contre les sites de paris sportifs, casinos en ligne et jeux de hasard.
+* **Contenus toxiques :** Sites faisant la promotion de valeurs contraires à l'éthique islamique ou dangereux pour la santé mentale.
+
+---
+
+## 4. Confidentialité des règles
+
+L'une des grandes fiertés de MuslimGuard est le respect de votre vie privée.
+
+* **Stockage Local :** Vos listes de sites bloqués et vos mots-clés ne sont **jamais** envoyés sur nos serveurs.
+* **Zéro Cloud :** Tout reste dans la base de données locale de votre navigateur. 
+* **Indétectable :** Personne en dehors de vous (possédant le mot de passe parent) ne peut consulter vos réglages.
+
+<Callout type="warning" icon="🔒">
+Pensez à choisir un mot de passe robuste pour l'accès aux réglages afin que vos enfants ne puissent pas modifier les règles de blocage eux-mêmes.
+</Callout>
+
+---
+
+## Questions fréquentes (FAQ)
+
+### Puis-je bloquer YouTube entièrement ?
+Oui, il suffit d'ajouter `youtube.com` dans votre liste de sites bloqués.
+
+### Est-ce que le blocage fonctionne en navigation privée ?
+Oui, si vous avez autorisé l'extension MuslimGuard à s'exécuter en mode "Incognito" dans les réglages de votre navigateur.
+
+---
+
+## Prochaines étapes
+
+<Callout type="info">
+Maintenant que vos règles sont prêtes, configurez le rythme de la maison.
+</Callout>
+
+- [Gestion du temps et Prières](/docs/configuration/prayer-times) - Synchronisez Internet avec la Salat.
+- [Plages horaires](/docs/configuration/schedules) - Définissez des heures de déconnexion automatique.
+- [Mot de passe Parent](/docs/configuration/security) - Sécurisez vos réglages.

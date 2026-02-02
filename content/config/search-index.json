@@ -16,6 +16,108 @@
   },
   {
     "id": "doc-1",
+    "title": "Blocage personnalisé",
+    "description": "Créez vos propres règles de blocage adaptées à vos valeurs familiales",
+    "slug": "/docs/features/custom-blocking",
+    "type": "doc",
+    "section": "features",
+    "tags": [
+      "blocage",
+      "personnalisation",
+      "filtrage",
+      "sites web"
+    ]
+  },
+  {
+    "id": "doc-2",
+    "title": "Vue d'ensemble des fonctionnalités",
+    "description": "Découvrez toutes les fonctionnalités de MuslimGuard pour protéger vos enfants en ligne",
+    "slug": "/docs/features/index",
+    "type": "doc",
+    "section": "features",
+    "tags": [
+      "fonctionnalités",
+      "protection",
+      "blocage",
+      "contrôle parental",
+      "prière"
+    ]
+  },
+  {
+    "id": "doc-3",
+    "title": "Détection temps réel",
+    "description": "Protection proactive grâce à la détection intelligente de mots-clés",
+    "slug": "/docs/features/keyword-detection",
+    "type": "doc",
+    "section": "features",
+    "tags": [
+      "détection",
+      "mots-clés",
+      "temps réel",
+      "protection proactive"
+    ]
+  },
+  {
+    "id": "doc-4",
+    "title": "Multi-appareils",
+    "description": "Protection sur un nombre illimité d'ordinateurs pour toute la famille",
+    "slug": "/docs/features/multi-device",
+    "type": "doc",
+    "section": "features",
+    "tags": [
+      "multi-appareils",
+      "synchronisation",
+      "famille",
+      "ordinateurs illimités"
+    ]
+  },
+  {
+    "id": "doc-5",
+    "title": "Mode prière",
+    "description": "Pause automatique d'Internet pendant les heures de prière",
+    "slug": "/docs/features/prayer-mode",
+    "type": "doc",
+    "section": "features",
+    "tags": [
+      "prière",
+      "salat",
+      "horaires",
+      "pause automatique",
+      "islam"
+    ]
+  },
+  {
+    "id": "doc-6",
+    "title": "Confidentialité et sécurité",
+    "description": "Protection totale de vos données avec un stockage 100% local",
+    "slug": "/docs/features/privacy",
+    "type": "doc",
+    "section": "features",
+    "tags": [
+      "confidentialité",
+      "vie privée",
+      "sécurité",
+      "données locales",
+      "RGPD"
+    ]
+  },
+  {
+    "id": "doc-7",
+    "title": "Contrôle horaire",
+    "description": "Gérez les plages horaires d'accès à Internet pour vos enfants",
+    "slug": "/docs/features/time-controls",
+    "type": "doc",
+    "section": "features",
+    "tags": [
+      "horaires",
+      "plages",
+      "temps d'écran",
+      "routine",
+      "discipline"
+    ]
+  },
+  {
+    "id": "doc-8",
     "title": "Installation depuis le Chrome Web Store",
     "description": "Installez MuslimGuard en quelques clics depuis le Chrome Web Store officiel",
     "slug": "/docs/installation/chrome-store",
@@ -29,7 +131,7 @@
     ]
   },
   {
-    "id": "doc-2",
+    "id": "doc-9",
     "title": "Installation",
     "description": "Guide complet d'installation de l'extension MuslimGuard",
     "slug": "/docs/installation/index",
@@ -43,64 +145,23 @@
     ]
   },
   {
-    "id": "doc-3",
-    "title": "Installation manuelle",
-    "description": "Installer MuslimGuard manuellement pour le développement ou les tests",
-    "slug": "/docs/installation/manual-installation",
-    "type": "doc",
-    "section": "installation",
-    "tags": [
-      "installation manuelle",
-      "développement",
-      "mode développeur",
-      "chrome extension"
-    ]
-  },
-  {
-    "id": "doc-4",
-    "title": "Dépannage de l'installation",
-    "description": "Solutions aux problèmes courants lors de l'installation de MuslimGuard",
-    "slug": "/docs/installation/troubleshooting",
-    "type": "doc",
-    "section": "installation",
-    "tags": [
-      "dépannage",
-      "erreurs",
-      "problèmes",
-      "installation",
-      "troubleshooting"
-    ]
-  },
-  {
-    "id": "doc-5",
+    "id": "doc-10",
     "title": "Qu'est-ce que MuslimGuard ?",
-    "description": "Découvrez MuslimGuard, le premier contrôle parental conçu pour les familles musulmanes",
+    "description": "Une analyse détaillée de la solution MuslimGuard, son fonctionnement, sa philosophie et ses capacités techniques de protection pour les familles musulmanes.",
     "slug": "/docs/introduction/index",
     "type": "doc",
     "section": "introduction",
     "tags": [
       "muslimguard",
-      "contrôle parental",
+      "protection parentale",
       "islam",
-      "protection en ligne"
+      "filtrage web",
+      "sécurité famille",
+      "salat"
     ]
   },
   {
-    "id": "doc-6",
-    "title": "Guide de démarrage rapide",
-    "description": "Installez et configurez MuslimGuard en moins de 5 minutes",
-    "slug": "/docs/introduction/quick-start",
-    "type": "doc",
-    "section": "introduction",
-    "tags": [
-      "installation",
-      "démarrage rapide",
-      "configuration",
-      "tutoriel"
-    ]
-  },
-  {
-    "id": "doc-7",
+    "id": "doc-11",
     "title": "Prérequis système",
     "description": "Configuration minimale requise pour utiliser MuslimGuard",
     "slug": "/docs/introduction/system-requirements",
