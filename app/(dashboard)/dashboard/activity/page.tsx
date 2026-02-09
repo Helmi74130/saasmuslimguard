@@ -13,6 +13,8 @@ import {
   Puzzle,
   Link2,
   XCircle,
+  Smartphone,
+  CreditCard,
   type LucideIcon,
 } from 'lucide-react';
 import { ActivityType } from '@/lib/db/schema';
@@ -34,6 +36,10 @@ const iconMap: Record<ActivityType, LucideIcon> = {
   [ActivityType.EXTENSION_REGISTERED]: Puzzle,
   [ActivityType.EXTENSION_LINKED]: Link2,
   [ActivityType.EXTENSION_REVOKED]: XCircle,
+  [ActivityType.MOBILE_LOGIN]: Smartphone,
+  [ActivityType.MOBILE_LOGOUT]: Smartphone,
+  [ActivityType.MOBILE_DEVICE_REVOKED]: XCircle,
+  [ActivityType.GOOGLE_PLAY_PURCHASE]: CreditCard,
 };
 
 function getRelativeTime(date: Date) {
@@ -82,6 +88,14 @@ function formatAction(action: ActivityType): string {
       return 'Une extension a été liée à votre compte';
     case ActivityType.EXTENSION_REVOKED:
       return 'Une extension a été révoquée';
+    case ActivityType.MOBILE_LOGIN:
+      return 'Connexion depuis l’application mobile';
+    case ActivityType.MOBILE_LOGOUT:
+      return 'Déconnexion de l’application mobile';
+    case ActivityType.MOBILE_DEVICE_REVOKED:
+      return 'Un appareil mobile a été révoqué';
+    case ActivityType.GOOGLE_PLAY_PURCHASE:
+      return 'Achat effectué via Google Play';
     default:
       return 'Action inconnue';
   }
