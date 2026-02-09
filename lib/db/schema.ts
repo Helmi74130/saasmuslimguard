@@ -31,6 +31,11 @@ export const teams = pgTable('teams', {
   stripeProductId: text('stripe_product_id'),
   planName: varchar('plan_name', { length: 50 }),
   subscriptionStatus: varchar('subscription_status', { length: 20 }),
+  // Google Play Billing
+  googlePlayPurchaseToken: text('google_play_purchase_token'),
+  googlePlayProductId: text('google_play_product_id'),
+  googlePlayExpiresAt: timestamp('google_play_expires_at'),
+  subscriptionSource: varchar('subscription_source', { length: 20 }), // 'stripe' | 'google_play' | null
 });
 
 export const teamMembers = pgTable('team_members', {
@@ -87,12 +92,14 @@ export const teamsRelations = relations(teams, ({ many }) => ({
   activityLogs: many(activityLogs),
   invitations: many(invitations),
   extensionTokens: many(extensionTokens),
+  mobileDevices: many(mobileDevices),
 }));
 
 export const usersRelations = relations(users, ({ many }) => ({
   teamMembers: many(teamMembers),
   invitationsSent: many(invitations),
   extensionTokens: many(extensionTokens),
+  mobileDevices: many(mobileDevices),
 }));
 
 export const invitationsRelations = relations(invitations, ({ one }) => ({
@@ -139,6 +146,31 @@ export const extensionTokensRelations = relations(extensionTokens, ({ one }) => 
   }),
 }));
 
+export const mobileDevices = pgTable('mobile_devices', {
+  id: serial('id').primaryKey(),
+  token: varchar('token', { length: 255 }).notNull().unique(),
+  teamId: integer('team_id').references(() => teams.id, { onDelete: 'cascade' }),
+  userId: integer('user_id').references(() => users.id, { onDelete: 'set null' }),
+  deviceName: varchar('device_name', { length: 100 }),
+  deviceId: varchar('device_id', { length: 255 }),
+  platform: varchar('platform', { length: 20 }).default('android'),
+  appVersion: varchar('app_version', { length: 20 }),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  lastUsedAt: timestamp('last_used_at').defaultNow(),
+  revokedAt: timestamp('revoked_at'),
+});
+
+export const mobileDevicesRelations = relations(mobileDevices, ({ one }) => ({
+  team: one(teams, {
+    fields: [mobileDevices.teamId],
+    references: [teams.id],
+  }),
+  user: one(users, {
+    fields: [mobileDevices.userId],
+    references: [users.id],
+  }),
+}));
+
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
 export type Team = typeof teams.$inferSelect;
@@ -151,6 +183,8 @@ export type Invitation = typeof invitations.$inferSelect;
 export type NewInvitation = typeof invitations.$inferInsert;
 export type ExtensionToken = typeof extensionTokens.$inferSelect;
 export type NewExtensionToken = typeof extensionTokens.$inferInsert;
+export type MobileDevice = typeof mobileDevices.$inferSelect;
+export type NewMobileDevice = typeof mobileDevices.$inferInsert;
 export type TeamDataWithMembers = Team & {
   teamMembers: (TeamMember & {
     user: Pick<User, 'id' | 'name' | 'email'>;
@@ -173,4 +207,8 @@ export enum ActivityType {
   EXTENSION_REGISTERED = 'EXTENSION_REGISTERED',
   EXTENSION_LINKED = 'EXTENSION_LINKED',
   EXTENSION_REVOKED = 'EXTENSION_REVOKED',
+  MOBILE_LOGIN = 'MOBILE_LOGIN',
+  MOBILE_LOGOUT = 'MOBILE_LOGOUT',
+  MOBILE_DEVICE_REVOKED = 'MOBILE_DEVICE_REVOKED',
+  GOOGLE_PLAY_PURCHASE = 'GOOGLE_PLAY_PURCHASE',
 }

@@ -16,6 +16,66 @@
   },
   {
     "id": "doc-1",
+    "title": "Règles de blocage",
+    "description": "Apprenez à configurer et personnaliser les filtres de protection pour un Internet sain",
+    "slug": "/docs/configuration/blocking-rules",
+    "type": "doc",
+    "section": "configuration",
+    "tags": [
+      "blocage",
+      "filtres",
+      "mots-clés",
+      "sites interdits",
+      "configuration"
+    ]
+  },
+  {
+    "id": "doc-2",
+    "title": "Détection de mots-clés",
+    "description": "Comprendre et configurer le moteur d'analyse sémantique en temps réel",
+    "slug": "/docs/configuration/keywords",
+    "type": "doc",
+    "section": "configuration",
+    "tags": [
+      "mots-clés",
+      "intelligence",
+      "temps réel",
+      "protection proactive",
+      "filtrage"
+    ]
+  },
+  {
+    "id": "doc-3",
+    "title": "Heures de prière",
+    "description": "Synchronisez l'accès à Internet avec le rythme spirituel de la journée",
+    "slug": "/docs/configuration/prayer-times",
+    "type": "doc",
+    "section": "configuration",
+    "tags": [
+      "prière",
+      "salat",
+      "pause automatique",
+      "discipline",
+      "routine"
+    ]
+  },
+  {
+    "id": "doc-4",
+    "title": "Contrôle horaire",
+    "description": "Définissez des plages horaires d'accès pour instaurer une routine numérique saine",
+    "slug": "/docs/configuration/time-restrictions",
+    "type": "doc",
+    "section": "configuration",
+    "tags": [
+      "temps d'écran",
+      "limite horaire",
+      "routine",
+      "discipline",
+      "sommeil"
+    ]
+  },
+  {
+    "id": "doc-5",
     "title": "Blocage personnalisé",
     "description": "Créez vos propres règles de blocage adaptées à vos valeurs familiales",
     "slug": "/docs/features/custom-blocking",
@@ -29,7 +89,7 @@
     ]
   },
   {
-    "id": "doc-2",
+    "id": "doc-6",
     "title": "Vue d'ensemble des fonctionnalités",
     "description": "Découvrez toutes les fonctionnalités de MuslimGuard pour protéger vos enfants en ligne",
     "slug": "/docs/features/index",
@@ -44,7 +104,7 @@
     ]
   },
   {
-    "id": "doc-3",
+    "id": "doc-7",
     "title": "Détection temps réel",
     "description": "Protection proactive grâce à la détection intelligente de mots-clés",
     "slug": "/docs/features/keyword-detection",
@@ -58,7 +118,7 @@
     ]
   },
   {
-    "id": "doc-4",
+    "id": "doc-8",
     "title": "Multi-appareils",
     "description": "Protection sur un nombre illimité d'ordinateurs pour toute la famille",
     "slug": "/docs/features/multi-device",
@@ -72,7 +132,7 @@
     ]
   },
   {
-    "id": "doc-5",
+    "id": "doc-9",
     "title": "Mode prière",
     "description": "Pause automatique d'Internet pendant les heures de prière",
     "slug": "/docs/features/prayer-mode",
@@ -87,7 +147,7 @@
     ]
   },
   {
-    "id": "doc-6",
+    "id": "doc-10",
     "title": "Confidentialité et sécurité",
     "description": "Protection totale de vos données avec un stockage 100% local",
     "slug": "/docs/features/privacy",
@@ -102,7 +162,7 @@
     ]
   },
   {
-    "id": "doc-7",
+    "id": "doc-11",
     "title": "Contrôle horaire",
     "description": "Gérez les plages horaires d'accès à Internet pour vos enfants",
     "slug": "/docs/features/time-controls",
@@ -117,7 +177,7 @@
     ]
   },
   {
-    "id": "doc-8",
+    "id": "doc-12",
     "title": "Installation depuis le Chrome Web Store",
     "description": "Installez MuslimGuard en quelques clics depuis le Chrome Web Store officiel",
     "slug": "/docs/installation/chrome-store",
@@ -131,7 +191,7 @@
     ]
   },
   {
-    "id": "doc-9",
+    "id": "doc-13",
     "title": "Installation",
     "description": "Guide complet d'installation de l'extension MuslimGuard",
     "slug": "/docs/installation/index",
@@ -145,7 +205,7 @@
     ]
   },
   {
-    "id": "doc-10",
+    "id": "doc-14",
     "title": "Qu'est-ce que MuslimGuard ?",
     "description": "Une analyse détaillée de la solution MuslimGuard, son fonctionnement, sa philosophie et ses capacités techniques de protection pour les familles musulmanes.",
     "slug": "/docs/introduction/index",
@@ -161,7 +221,7 @@
     ]
   },
   {
-    "id": "doc-11",
+    "id": "doc-15",
     "title": "Prérequis système",
     "description": "Configuration minimale requise pour utiliser MuslimGuard",
     "slug": "/docs/introduction/system-requirements",

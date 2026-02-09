@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "dev": "pnpm build:search && next dev --turbopack",
-    "build": "pnpm build:search && next build",
+    "dev": "npx tsx scripts/build-search.ts && next dev --turbopack",
+    "build": "npx tsx scripts/build-search.ts && next build",
     "build:search": "tsx scripts/build-search.ts",
     "start": "next start",
     "db:setup": "npx tsx lib/db/setup.ts",
