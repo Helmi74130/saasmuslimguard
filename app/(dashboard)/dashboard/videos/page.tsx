@@ -451,6 +451,7 @@ function VideosTab() {
                 />
               </div>
               <div className="flex items-end gap-2 pb-1">
+                <input type="hidden" name="hasSound" value="false" />
                 <input
                   type="checkbox"
                   id="vid-sound"

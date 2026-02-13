@@ -8,6 +8,8 @@ import { validatedActionWithUser } from '@/lib/auth/middleware';
 
 // ===== HELPERS =====
 
+const zBool = z.string().transform((v) => v === 'true');
+
 function requireAdmin(role: string) {
   if (role !== 'admin') {
     throw new Error('Accès non autorisé');
@@ -71,7 +73,7 @@ export const deleteCategory = validatedActionWithUser(
 
 const toggleCategoryActiveSchema = z.object({
   id: z.coerce.number().int(),
-  active: z.coerce.boolean(),
+  active: zBool,
 });
 
 export const toggleCategoryActive = validatedActionWithUser(
@@ -92,7 +94,7 @@ const addVideoSchema = z.object({
   youtubeUrl: z.string().min(1, 'Lien YouTube requis'),
   title: z.string().min(1, 'Titre requis').max(255),
   categoryId: z.coerce.number().int(),
-  hasSound: z.coerce.boolean().default(true),
+  hasSound: zBool.default('true'),
   order: z.coerce.number().int().default(0),
   thumbnailUrl: z.string().optional(),
 });
@@ -121,7 +123,7 @@ const updateVideoSchema = z.object({
   id: z.coerce.number().int(),
   title: z.string().min(1, 'Titre requis').max(255),
   categoryId: z.coerce.number().int(),
-  hasSound: z.coerce.boolean().default(true),
+  hasSound: zBool.default('true'),
   order: z.coerce.number().int().default(0),
   thumbnailUrl: z.string().optional(),
 });
@@ -154,7 +156,7 @@ export const deleteVideo = validatedActionWithUser(
 
 const toggleVideoActiveSchema = z.object({
   id: z.coerce.number().int(),
-  active: z.coerce.boolean(),
+  active: zBool,
 });
 
 export const toggleVideoActive = validatedActionWithUser(
