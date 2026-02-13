@@ -39,7 +39,7 @@
     "lucide-react": "^0.511.0",
     "motion": "^12.28.1",
     "next": "15.6.0-canary.59",
-    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote": "^6.0.0",
     "postcss": "^8.5.3",
     "postgres": "^3.4.5",
     "radix-ui": "^1.4.2",
