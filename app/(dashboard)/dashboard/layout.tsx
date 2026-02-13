@@ -4,7 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Users, Settings, Shield, Activity, Menu } from 'lucide-react';
+import { Users, Settings, Shield, Activity, Menu, Video } from 'lucide-react';
+import useSWR from 'swr';
+import type { User } from '@/lib/db/schema';
+
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 export default function DashboardLayout({
   children
@@ -13,12 +17,16 @@ export default function DashboardLayout({
 }) {
   const pathname = usePathname();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { data: user } = useSWR<User>('/api/user', fetcher);
 
   const navItems = [
     { href: '/dashboard', icon: Users, label: 'Famille' },
     { href: '/dashboard/general', icon: Settings, label: 'Général' },
     { href: '/dashboard/activity', icon: Activity, label: 'Activité' },
-    { href: '/dashboard/security', icon: Shield, label: 'Sécurité' }
+    { href: '/dashboard/security', icon: Shield, label: 'Sécurité' },
+    ...(user?.role === 'admin'
+      ? [{ href: '/dashboard/videos', icon: Video, label: 'Vidéos' }]
+      : []),
   ];
 
   return (

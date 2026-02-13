@@ -5,6 +5,7 @@ import {
   text,
   timestamp,
   integer,
+  boolean,
 } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
@@ -171,6 +172,42 @@ export const mobileDevicesRelations = relations(mobileDevices, ({ one }) => ({
   }),
 }));
 
+// ===== TABLES VIDÉOS POUR MUSLIMGUARD APP =====
+
+export const videoCategories = pgTable('video_categories', {
+  id: serial('id').primaryKey(),
+  name: varchar('name', { length: 100 }).notNull(),
+  icon: varchar('icon', { length: 50 }).notNull(),
+  order: integer('order').notNull().default(0),
+  active: boolean('active').notNull().default(true),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const videos = pgTable('videos', {
+  id: serial('id').primaryKey(),
+  youtubeId: varchar('youtube_id', { length: 20 }).notNull(),
+  title: varchar('title', { length: 255 }).notNull(),
+  thumbnailUrl: text('thumbnail_url'),
+  categoryId: integer('category_id')
+    .notNull()
+    .references(() => videoCategories.id, { onDelete: 'cascade' }),
+  hasSound: boolean('has_sound').notNull().default(true),
+  order: integer('order').notNull().default(0),
+  active: boolean('active').notNull().default(true),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const videoCategoriesRelations = relations(videoCategories, ({ many }) => ({
+  videos: many(videos),
+}));
+
+export const videosRelations = relations(videos, ({ one }) => ({
+  category: one(videoCategories, {
+    fields: [videos.categoryId],
+    references: [videoCategories.id],
+  }),
+}));
+
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
 export type Team = typeof teams.$inferSelect;
@@ -185,6 +222,10 @@ export type ExtensionToken = typeof extensionTokens.$inferSelect;
 export type NewExtensionToken = typeof extensionTokens.$inferInsert;
 export type MobileDevice = typeof mobileDevices.$inferSelect;
 export type NewMobileDevice = typeof mobileDevices.$inferInsert;
+export type VideoCategory = typeof videoCategories.$inferSelect;
+export type NewVideoCategory = typeof videoCategories.$inferInsert;
+export type Video = typeof videos.$inferSelect;
+export type NewVideo = typeof videos.$inferInsert;
 export type TeamDataWithMembers = Team & {
   teamMembers: (TeamMember & {
     user: Pick<User, 'id' | 'name' | 'email'>;
